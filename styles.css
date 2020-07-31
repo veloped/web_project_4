@@ -1,29 +1,49 @@
 @import url('vendor/fonts/fonts.css');
 
+.page {
+  background-color: black;
+  height: auto;
+  margin: 0;
+
+}
 
 .page__container {
-  min-width: 320px;
+  min-width: auto;
+  max-width: 700px;
   margin: 0 auto;
   overflow: auto;
 }
 
-.page {
-  background-color: black;
-  margin: 0;
+@media screen and (min-width: 700px) {
+  .page__container {
+    min-width: 700px;
+    max-width: 882px;
+  }
 }
-
 
 .header {
+  width: 100%;
   border-bottom: 1px solid #545454;
-
 }
+
 
 .header__logo {
   width: 39%;
   margin: 8% auto 10% 8%;
 }
 
+@media screen and (min-width: 700px) {
+  .header__logo {
+    width: 19%;
+    margin: 5% auto 5% 5%;
+  }
+}
 
+@media screen and (min-width: 882px) {
+  .header__logo {
+    margin: 5% auto 5% 0;
+  }
+}
 
 .profile {
   width: 90%;
@@ -33,7 +53,20 @@
   align-items: center;
 }
 
+@media screen and (min-width: 700px) {
+  .profile {
+    margin-top: 36px;
+    width: 96%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
 
+@media screen and (min-width: 882px) {
+  .profile {
+    width: 100%;
+  }
+}
 
 .profile__avatar {
   margin: 12% auto 12% auto;
@@ -41,7 +74,25 @@
   border-radius: 50%;
 }
 
+@media screen and (min-width: 700px) {
+  .profile__avatar {
+    width: auto;
+    height: 127px;
+    margin: auto 0;
+  }
+}
 
+@media screen and (min-width: 882px) {
+  .profile__avatar {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .profile__textbox {
+    margin: 0 auto 0 30px;
+  }
+}
 
 .profile__name {
   padding: 0;
@@ -54,7 +105,14 @@
   line-height: 38px;
   text-align: center;
   color: #FFFFFF;
+}
 
+@media screen and (min-width: 700px) {
+  .profile__name {
+    margin: 0;
+    font-size: 42px;
+    line-height: 56px;
+  }
 }
 
 .profile__subtitle {
@@ -69,6 +127,15 @@
   color: #FFFFFF;
 }
 
+@media screen and (min-width: 700px) {
+  .profile__subtitle {
+    margin: 0 ;
+    text-align: start;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
 .add__button {
   margin-bottom: 11%;
   background-color: black;
@@ -79,6 +146,19 @@
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 2px;
+}
+
+@media screen and (min-width: 700px) {
+  .add__button {
+    width: 150px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 882px) {
+  .add__button {
+    margin: 0;
+  }
 }
 
 .add__plus {
@@ -95,6 +175,23 @@
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  .grid__list {
+    width: 96%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 882px) {
+  .grid__list {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 }
 
 .grid__card {
@@ -120,6 +217,7 @@
   width: 100%;
   background-color: #FFFFFF;
   margin: 0;
+  padding: 0;
   border-radius: 0 0 10px 10px;
 }
 
@@ -162,4 +260,10 @@
   font-size: 14px;
   line-height: 17px;
   color: #545454;
+}
+
+@media screen and (min-width: 882px) {
+  .footer__copyright {
+    margin-left: 0;
+  }
 }
