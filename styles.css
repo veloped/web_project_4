@@ -1,10 +1,30 @@
 @import url('vendor/fonts/fonts.css');
 
+
 .page {
   background-color: black;
-  height: auto;
   margin: 0;
+}
 
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: .5;
+  display: none;
+}
+
+.overlay__edit {
+  display: none;
+  position: fixed;
+  height: 330px;
+  width: 430px;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
 }
 
 .page__container {
@@ -107,6 +127,8 @@
   color: #FFFFFF;
 }
 
+
+
 @media screen and (min-width: 700px) {
   .profile__name {
     margin: 0;
@@ -115,7 +137,32 @@
   }
 }
 
+.profile__edit {
+  position: relative;
+  bottom: 35px;
+  left: 204px;
+  background-image: url(images/edit.svg);
+  background-size: 45%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 18px;
+  width: 18px;
+  border: 1px solid white;
+  margin: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .profile__edit {
+    left: 394px;
+    bottom: 38px;
+    height: 24px;
+    width: 24px;
+  }
+}
+
 .profile__subtitle {
+  position: relative;
+  bottom: 20px;
   margin: 0;
   margin-bottom: 11%;
   font-family: Inter;
@@ -126,6 +173,8 @@
   text-align: center;
   color: #FFFFFF;
 }
+
+
 
 @media screen and (min-width: 700px) {
   .profile__subtitle {
