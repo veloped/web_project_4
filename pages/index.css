@@ -12,7 +12,5 @@
 @import url('../blocks/grid/grid.css');
 @import url('../blocks/footer/footer.css');
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
+
+
