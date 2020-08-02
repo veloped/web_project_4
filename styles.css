@@ -1,4 +1,5 @@
-@import url('vendor/fonts/fonts.css');
+@import url('../vendor/normalize.css');
+@import url('../vendor/fonts/fonts.css');
 
 
 .page {
@@ -28,7 +29,7 @@
 }
 
 .overlay {
-  display: none;
+  display: block;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -42,7 +43,7 @@
 }
 
 .popup {
-  display: none;
+  display: block;
   position: fixed;
   height: 330px;
   width: 90%;
@@ -322,11 +323,7 @@
 }
 
 
-@media screen and (min-width: 882px) {
-  .add__button {
-    margin: 0;
-  }
-}
+
 
 .add__plus {
   display: flex;

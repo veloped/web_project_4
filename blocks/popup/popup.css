@@ -1,0 +1,17 @@
+@import url('__close-button/popup__close-button.css');
+@import url('__container/popup__container.css');
+@import url('__title/popup__title.css');
+
+.popup {
+  display: block;
+  position: fixed;
+  height: 330px;
+  width: 90%;
+  max-width: 430px;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 5;
+}

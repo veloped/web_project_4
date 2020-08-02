@@ -1,0 +1,9 @@
+.profile__textbox {
+  position: relative;
+}
+
+@media screen and (min-width: 700px) {
+  .profile__textbox {
+    margin: 0 auto 0 30px;
+  }
+}

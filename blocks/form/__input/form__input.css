@@ -1,0 +1,14 @@
+.form__input {
+  border: none;
+  border-bottom: 1px solid black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.form__input:nth-child(2) {
+  margin-bottom: 44px;
+}

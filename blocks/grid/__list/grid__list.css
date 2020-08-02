@@ -1,0 +1,25 @@
+.grid__list {
+  margin: 0 auto 48px auto;
+  padding: 0;
+  width: 90%;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  .grid__list {
+    width: 96%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 882px) {
+  .grid__list {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+}

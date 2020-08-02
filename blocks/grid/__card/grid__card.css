@@ -1,0 +1,8 @@
+.grid__card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-radius: 10px;
+}
