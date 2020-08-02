@@ -28,7 +28,7 @@
 }
 
 .overlay {
-  display: block;
+  display: none;
   position: fixed;
   height: 100%;
   width: 100%;
@@ -37,8 +37,12 @@
   z-index: 4;
 }
 
-.popup {
+.overlay_opened {
   display: block;
+}
+
+.popup {
+  display: none;
   position: fixed;
   height: 330px;
   width: 90%;
@@ -49,6 +53,10 @@
   transform: translate(-50%, -50%);
   border-radius: 10px;
   z-index: 5;
+}
+
+.popup_opened {
+  display: block;
 }
 
 .popup__container {
