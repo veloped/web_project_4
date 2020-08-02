@@ -3,7 +3,7 @@
 @import url('__title/popup__title.css');
 
 .popup {
-  display: block;
+  display: none;
   position: fixed;
   height: 330px;
   width: 90%;
