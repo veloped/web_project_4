@@ -4,7 +4,7 @@ let overlay = document.querySelector('.overlay');
 let closeButton = document.querySelector('.popup__close-button');
 let saveButton = document.querySelector('.form__save-button');
 let profileName = document.querySelector('.profile__name');
-let profileOccupation = document.querySelector('.profile__subtitle');
+let profileAbout = document.querySelector('.profile__about');
 let popupOpened = false;
 
 function popup() {
@@ -21,10 +21,10 @@ function popup() {
 
 function changeName() {
   let name = document.querySelector('.form__input_name');
-  let occupation = document.querySelector('.form__input_occupation');
+  let about = document.querySelector('.form__input_about');
 
   profileName.textContent = name.value;
-  profileOccupation.textContent = occupation.value;
+  profileAbout.textContent = about.value;
 
   popup();
 }
