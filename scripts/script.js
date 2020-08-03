@@ -4,8 +4,6 @@ let closeButton = document.querySelector('.popup__close-button');
 let form = document.querySelector('.form');
 let profileName = document.querySelector('.profile__name');
 let profileAbout = document.querySelector('.profile__about');
-let nameData = document.querySelector('.profile__name');
-let aboutData = document.querySelector('.profile__about');
 let name = document.querySelector('.form__input_type_name');
 let about = document.querySelector('.form__input_type_about');
 
@@ -15,8 +13,8 @@ function togglePopup() {
     popupElement.classList.remove('popup_opened');
   }else{
     popupElement.classList.add('popup_opened');
-    name.value = nameData.textContent;
-    about.value = aboutData.textContent;
+    name.value =  profileName.textContent;
+    about.value =  profileAbout.textContent;
   }
 }
 
@@ -26,6 +24,7 @@ function changeName() {
   profileAbout.textContent = about.value;
 
   togglePopup();
+  event.preventDefault();
 }
 
 editButton.addEventListener('click', togglePopup);
