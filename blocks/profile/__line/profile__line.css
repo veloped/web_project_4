@@ -1,0 +1,12 @@
+.profile__line {
+  margin: 0 auto;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 700px) {
+  .profile__line {
+    padding-left: 0;
+  }
+}
