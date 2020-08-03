@@ -4,7 +4,10 @@
 ˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙
 ### URL to the project:
 
+https://veloped.github.io/web_project_4/index.html
+
 ### Technologies used:
+
 * Responsive layout and media queries.
 * Grid.
 * Flexbox.
