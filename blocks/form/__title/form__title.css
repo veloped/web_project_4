@@ -1,6 +1,6 @@
-.popup__title {
-  margin: 0;
-  margin-bottom: 50px;
+.form__title {
+  width: 84%;
+  margin: 36px auto 50px auto;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;

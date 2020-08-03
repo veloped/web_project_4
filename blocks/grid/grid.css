@@ -1,4 +1,3 @@
-@import url('__box/grid__box.css');
 @import url('__card/grid__card.css');
 @import url('__image/grid__image.css');
 @import url('__like/grid__like.css');
@@ -6,3 +5,12 @@
 @import url('__name/grid__name.css');
 @import url('__text/grid__text.css');
 
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  border-radius: 0 0 10px 10px;
+}

@@ -3,11 +3,11 @@
   background-color: transparent;
   background-size: contain;
   position: absolute;
+  top: -40px;
+  right: 0px;
   width: 40px;
   height: 40px;
   border: none;
-  top: -40px;
-  right: 0;
   cursor: pointer;
   background-repeat: no-repeat;
   background-position: center;
@@ -17,7 +17,8 @@
 
 @media screen and (min-width: 700px) {
   .popup__close-button {
-    right: -40px;
+    top: -40px;
+    right: -45px;
     width: 50px;
     height: 50px;
   }

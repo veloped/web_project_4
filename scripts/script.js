@@ -1,36 +1,33 @@
 let editButton = document.querySelector('.profile__edit');
 let popupElement = document.querySelector('.popup');
-let overlay = document.querySelector('.overlay');
 let closeButton = document.querySelector('.popup__close-button');
-let saveButton = document.querySelector('.form__save-button');
+let form = document.querySelector('.form');
 let profileName = document.querySelector('.profile__name');
 let profileAbout = document.querySelector('.profile__about');
-let popupOpened = false;
+let nameData = document.querySelector('.profile__name');
+let aboutData = document.querySelector('.profile__about');
+let name = document.querySelector('.form__input_type_name');
+let about = document.querySelector('.form__input_type_about');
 
-function popup() {
-  if (popupOpened === false) {
-    popupElement.classList.add('popup_opened');
-    overlay.classList.add('overlay_opened');
-    popupOpened = true;
-  }else{
+
+function togglePopup() {
+  if (popupElement.classList.contains('popup_opened')) {
     popupElement.classList.remove('popup_opened');
-    overlay.classList.remove('overlay_opened');
-    popupOpened = false;
+  }else{
+    popupElement.classList.add('popup_opened');
+    name.value = nameData.textContent;
+    about.value = aboutData.textContent;
   }
 }
 
 function changeName() {
-  let name = document.querySelector('.form__input_name');
-  let about = document.querySelector('.form__input_about');
 
   profileName.textContent = name.value;
   profileAbout.textContent = about.value;
 
-  popup();
+  togglePopup();
 }
 
-editButton.addEventListener('click', popup);
-closeButton.addEventListener('click', popup);
-saveButton.addEventListener('click', changeName);
-
-
+editButton.addEventListener('click', togglePopup);
+closeButton.addEventListener('click', togglePopup);
+form.addEventListener('submit', changeName);

@@ -13,17 +13,14 @@
 
 <body class="body">
   <div class="page">
-    <div class="overlay"></div>
     <div class="popup">
-      <div class="popup__container">
-        <h2 class="popup__title">Edit profile</h2>
-        <form action="#" class="form" name="profile">
-          <input type="text" class="form__input form__input_name" value="Jacques Cousteau" placeholder="Name">
-          <input type="text" class="form__input form__input_about" value="Explorer" placeholder="About me">
-          <button class="form__save-button">Save</button>
-        </form>
+      <form action="#" class="form" name="profile">
+        <h2 class="form__title">Edit profile</h2>
+        <input type="text" name="name" class="form__input form__input_type_name" value="" placeholder="Name">
+        <input type="text" name="about" class="form__input form__input_type_about" value="" placeholder="About me">
+        <button class="form__save-button" type="submit">Save</button>
         <button class="popup__close-button" aria-label="Close Button" type="button"></button>
-      </div>
+      </form>
     </div>
     <div class="page__container">
       <header class="header">
@@ -46,18 +43,16 @@
           <ul class="grid__list">
             <li class="grid__card">
               <img class="grid__image" src="images/yosemite.png" alt="yosemite">
-              <div class="grid__box">
                 <div class="grid__text">
-                  <p class="grid__name">Yosemite Valley</p>
+                  <h3 class="grid__name">Yosemite Valley</h3>
                   <img class="grid__like" src="images/like.png" alt="like">
                 </div>
-              </div>
             </li>
             <li class="grid__card">
               <img class="grid__image" src="images/louise.png" alt="louise">
               <div class="grid__box">
                 <div class="grid__text">
-                  <p class="grid__name">Lake Louise</p>
+                  <h3 class="grid__name">Lake Louise</h3>
                   <img class="grid__like" src="images/like.png" alt="like">
                 </div>
               </div>
@@ -66,7 +61,7 @@
               <img class="grid__image" src="images/bald_mountains.png" alt="mountains">
               <div class="grid__box">
                 <div class="grid__text">
-                  <p class="grid__name">Bald Mountains</p>
+                  <h3 class="grid__name">Bald Mountains</h3>
                   <img class="grid__like" src="images/like.png" alt="like">
                 </div>
               </div>
@@ -75,7 +70,7 @@
               <img class="grid__image" src="images/latemar.png" alt="latemar">
               <div class="grid__box">
                 <div class="grid__text">
-                  <p class="grid__name">Latemar</p>
+                  <h3 class="grid__name">Latemar</h3>
                   <img class="grid__like" src="images/like.png" alt="like">
                 </div>
               </div>
@@ -84,7 +79,7 @@
               <img class="grid__image" src="images/vanoise.png" alt="vanoise">
               <div class="grid__box">
                 <div class="grid__text">
-                  <p class="grid__name">Vanoise National Park</p>
+                  <h3 class="grid__name">Vanoise National Park</h3>
                   <img class="grid__like" src="images/like.png" alt="like">
                 </div>
               </div>
@@ -93,7 +88,7 @@
               <img class="grid__image" src="images/lagobraies.png" alt="lagobraies">
               <div class="grid__box">
                 <div class="grid__text">
-                  <p class="grid__name">Lago di Braies</p>
+                  <h3 class="grid__name">Lago di Braies</h3>
                   <img class="grid__like" src="images/like.png" alt="like">
                 </div>
               </div>
