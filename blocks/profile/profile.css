@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 700px) {
   .profile {
-    margin-top: 36px;
+    margin: 36px auto 47px auto;
     width: 96%;
     flex-direction: row;
     justify-content: flex-start;
