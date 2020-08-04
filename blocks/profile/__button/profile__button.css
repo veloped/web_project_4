@@ -1,4 +1,4 @@
-.add__button {
+.profile__button {
   margin-bottom: 11%;
   background-color: transparent;
   background-image: url('../../../images/add.svg');
@@ -16,12 +16,12 @@
 }
 
 @media screen and (min-width: 700px) {
-  .add__button {
+  .profile__button {
     width: 150px;
     margin: 0;
   }
 
-  .add__button:hover {
+  .profile__button:hover {
     opacity: .6;
   }
 }

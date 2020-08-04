@@ -4,6 +4,7 @@
 @import url('__about/profile__about.css');
 @import url('__textbox/profile__textbox.css');
 @import url('__line/profile__line.css');
+@import url('__button/profile__button.css');
 
 .profile {
   width: 90%;

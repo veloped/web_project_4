@@ -1,4 +1,4 @@
-.popup__close-button {
+.form__close-button {
   background-image: url('../../../images/close.svg');
   background-color: transparent;
   background-size: contain;
@@ -16,14 +16,14 @@
 }
 
 @media screen and (min-width: 700px) {
-  .popup__close-button {
+  .form__close-button {
     top: -40px;
     right: -45px;
     width: 50px;
     height: 50px;
   }
 
-  .popup__close-button:hover {
+  .form__close-button:hover {
     opacity: .6;
   }
 }
