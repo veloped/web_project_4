@@ -19,12 +19,12 @@ function togglePopup() {
 }
 
 function changeName() {
+  event.preventDefault();
 
   profileName.textContent = name.value;
   profileAbout.textContent = about.value;
 
   togglePopup();
-  event.preventDefault();
 }
 
 editButton.addEventListener('click', togglePopup);
