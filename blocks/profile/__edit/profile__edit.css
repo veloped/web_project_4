@@ -9,6 +9,7 @@
   border: 1px solid white;
   margin: 0;
   margin-left: 17px;
+  cursor: pointer;
   transition-duration: .5s;
 }
 
