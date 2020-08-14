@@ -1,23 +1,35 @@
 const editButton = document.querySelector('.profile__edit');
-const popupElement = document.querySelector('.popup-edit');
-const closeButton = document.querySelector('.form__close-button');
+const popupEditElement = document.querySelector('.popup-edit');
+const closeButtonEdit = document.querySelector('.form__close-button_edit');
+const closeButtonAdd = document.querySelector('.form__close-button_add');
 const form = document.querySelector('.form');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 const name = document.querySelector('.form__input_type_name');
 const about = document.querySelector('.form__input_type_about');
 const gridList = document.querySelector('.grid__list');
+const addButton = document.querySelector('.profile__button');
+const popupAddElement = document.querySelector('.popup-add');
 
-
-function togglePopup() {
-  if (popupElement.classList.contains('popup-edit_opened')) {
-    popupElement.classList.remove('popup-edit_opened');
+function togglePopupAdd() {
+  if (popupAddElement.classList.contains('popup-add_opened')) {
+    popupAddElement.classList.remove('popup-add_opened');
   }else{
-    popupElement.classList.add('popup-edit_opened');
+    popupAddElement.classList.add('popup-add_opened');
+  }
+}
+
+function togglePopupEdit() {
+  if (popupEditElement.classList.contains('popup-edit_opened')) {
+    popupEditElement.classList.remove('popup-edit_opened');
+  }else{
+    popupEditElement.classList.add('popup-edit_opened');
     name.value =  profileName.textContent;
     about.value =  profileAbout.textContent;
   }
 }
+
+
 
 function changeName() {
   event.preventDefault();
@@ -25,11 +37,13 @@ function changeName() {
   profileName.textContent = name.value;
   profileAbout.textContent = about.value;
 
-  togglePopup();
+  togglePopupEdit();
 }
 
-editButton.addEventListener('click', togglePopup);
-closeButton.addEventListener('click', togglePopup);
+addButton.addEventListener('click', togglePopupAdd);
+closeButtonAdd.addEventListener('click', togglePopupAdd);
+editButton.addEventListener('click', togglePopupEdit);
+closeButtonEdit.addEventListener('click', togglePopupEdit);
 form.addEventListener('submit', changeName);
 
 function addCard(cardName, cardLink) {
