@@ -1,5 +1,10 @@
 .grid__image {
+  height: 282px;
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+
 }
