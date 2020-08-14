@@ -41,8 +41,11 @@ function takeData() {
   const title = inputTitle.value;
   const link = inputLink.value;
 
-  addCard(title, link);
-  togglePopupAdd();
+
+  if ((title != "") && (link != "")) {
+    addCard(title, link);
+    togglePopupAdd();
+  }
 }
 
 function changeName() {
