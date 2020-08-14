@@ -2,7 +2,10 @@ const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup-edit');
 const closeButtonEdit = document.querySelector('.form__close-button_edit');
 const closeButtonAdd = document.querySelector('.form__close-button_add');
-const form = document.querySelector('.form');
+const formEdit = document.querySelector('.form_edit');
+const formAdd = document.querySelector('.form_add');
+const inputTitle = document.querySelector('.form__input_type_title');
+const inputLink = document.querySelector('.form__input_type_link');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 const name = document.querySelector('.form__input_type_name');
@@ -11,9 +14,12 @@ const gridList = document.querySelector('.grid__list');
 const addButton = document.querySelector('.profile__button');
 const popupAddElement = document.querySelector('.popup-add');
 
+
 function togglePopupAdd() {
   if (popupAddElement.classList.contains('popup-add_opened')) {
     popupAddElement.classList.remove('popup-add_opened');
+    inputTitle.value = "";
+    inputLink.value = "";
   }else{
     popupAddElement.classList.add('popup-add_opened');
   }
@@ -29,7 +35,15 @@ function togglePopupEdit() {
   }
 }
 
+function takeData() {
+  event.preventDefault();
 
+  const title = inputTitle.value;
+  const link = inputLink.value;
+
+  addCard(title, link);
+  togglePopupAdd();
+}
 
 function changeName() {
   event.preventDefault();
@@ -39,12 +53,6 @@ function changeName() {
 
   togglePopupEdit();
 }
-
-addButton.addEventListener('click', togglePopupAdd);
-closeButtonAdd.addEventListener('click', togglePopupAdd);
-editButton.addEventListener('click', togglePopupEdit);
-closeButtonEdit.addEventListener('click', togglePopupEdit);
-form.addEventListener('submit', changeName);
 
 function addCard(cardName, cardLink) {
 
@@ -68,7 +76,7 @@ function addCard(cardName, cardLink) {
 
   gridCard.append(gridImage, gridText);
   gridText.append(gridName, gridLike);
-  gridList.append(gridCard);
+  gridList.prepend(gridCard);
 }
 
 
@@ -98,6 +106,13 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg"
   }
 ];
+
+addButton.addEventListener('click', togglePopupAdd);
+closeButtonAdd.addEventListener('click', togglePopupAdd);
+editButton.addEventListener('click', togglePopupEdit);
+closeButtonEdit.addEventListener('click', togglePopupEdit);
+formEdit.addEventListener('submit', changeName);
+formAdd.addEventListener('submit', takeData);
 
 initialCards.forEach(function(item) {
   addCard(item.name, item.link);
