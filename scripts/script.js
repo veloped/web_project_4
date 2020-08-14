@@ -1,5 +1,5 @@
 const editButton = document.querySelector('.profile__edit');
-const popupElement = document.querySelector('.popup');
+const popupElement = document.querySelector('.popup-edit');
 const closeButton = document.querySelector('.form__close-button');
 const form = document.querySelector('.form');
 const profileName = document.querySelector('.profile__name');
@@ -10,10 +10,10 @@ const gridList = document.querySelector('.grid__list');
 
 
 function togglePopup() {
-  if (popupElement.classList.contains('popup_opened')) {
-    popupElement.classList.remove('popup_opened');
+  if (popupElement.classList.contains('popup-edit_opened')) {
+    popupElement.classList.remove('popup-edit_opened');
   }else{
-    popupElement.classList.add('popup_opened');
+    popupElement.classList.add('popup-edit_opened');
     name.value =  profileName.textContent;
     about.value =  profileAbout.textContent;
   }
