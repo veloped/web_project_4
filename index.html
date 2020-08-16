@@ -26,7 +26,7 @@
       <form action="#" class="form form_add" name="profile">
         <h2 class="form__title">New place</h2>
         <input type="text" name="title" class="form__input form__input_type_title" value="" placeholder="Title">
-        <input type="text" name="link" class="form__input form__input_type_link" value="" placeholder="Image link">
+        <input type="url" name="link" class="form__input form__input_type_link" value="" placeholder="Image link">
         <button class="form__button form__button_add" type="submit">Create</button>
         <button class="form__close-button form__close-button_add" aria-label="Close Button" type="button"></button>
       </form>
@@ -57,6 +57,16 @@
       </footer>
     </div>
   </div>
+<template class="card-template">
+  <li class="grid__card">
+    <button type="button" class="grid__delete"></button>
+    <img class="grid__image" src="" alt="">
+    <div class="grid__text">
+      <h2 class="grid__name"></h2>
+      <button type="button" class="grid__like"></button>
+    </div>
+  </li>
+</template>
 <script src="scripts/script.js"></script>
 </body>
 

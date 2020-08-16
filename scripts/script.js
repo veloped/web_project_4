@@ -13,6 +13,8 @@ const about = document.querySelector('.form__input_type_about');
 const gridList = document.querySelector('.grid__list');
 const addButton = document.querySelector('.profile__button');
 const popupAddElement = document.querySelector('.popup-add');
+const cardTemplate = document.querySelector('.card-template').content.querySelector('.grid__card');
+const list = document.querySelector('.grid__list');
 
 
 
@@ -37,7 +39,24 @@ function togglePopupEdit() {
   }
 }
 
+function addCard(cardTitle, cardLink) {
+  const cardElement = cardTemplate.cloneNode(true);
 
+  const cardImage = cardElement.querySelector('.grid__image');
+  const cardName = cardElement.querySelector('.grid__name');
+  const cardLikeButton = cardElement.querySelector('.grid__like');
+  const cardDeleteButton = cardElement.querySelector('.grid__delete');
+
+  cardName.textContent = cardTitle;
+  cardImage.src = cardLink;
+  cardImage.alt = cardTitle;
+
+  list.prepend(cardElement);
+
+  cardLikeButton.addEventListener('click',function () {
+    cardLikeButton.classList.toggle('grid__like_on');
+  });
+}
 
 function takeData() {
   event.preventDefault();
@@ -59,31 +78,6 @@ function changeName() {
   profileAbout.textContent = about.value;
 
   togglePopupEdit();
-}
-
-function addCard(cardName, cardLink) {
-
-  const gridCard = document.createElement('li');
-  gridCard.classList.add('grid__card');
-
-  const gridImage = document.createElement('img');
-  gridImage.classList.add('grid__image');
-  gridImage.setAttribute('src', cardLink);
-  gridImage.setAttribute('alt', cardName);
-
-  const gridText = document.createElement('div');
-  gridText.classList.add('grid__text');
-
-  const gridName = document.createElement('h2');
-  gridName.classList.add('grid__name');
-  gridName.textContent = cardName;
-
-  const gridLike = document.createElement('button');
-  gridLike.classList.add('grid__like');
-
-  gridCard.append(gridImage, gridText);
-  gridText.append(gridName, gridLike);
-  gridList.prepend(gridCard);
 }
 
 
@@ -115,6 +109,10 @@ const initialCards = [
   }
 ];
 
+initialCards.forEach(function (data) {
+  addCard(data.name, data.link);
+});
+
 addButton.addEventListener('click', togglePopupAdd);
 closeButtonAdd.addEventListener('click', togglePopupAdd);
 editButton.addEventListener('click', togglePopupEdit);
@@ -123,8 +121,5 @@ formEdit.addEventListener('submit', changeName);
 formAdd.addEventListener('submit', takeData);
 
 
-initialCards.forEach(function(item) {
-  addCard(item.name, item.link);
-});
 
 
