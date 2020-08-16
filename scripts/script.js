@@ -15,6 +15,8 @@ const addButton = document.querySelector('.profile__button');
 const popupAddElement = document.querySelector('.popup-add');
 
 
+
+
 function togglePopupAdd() {
   if (popupAddElement.classList.contains('popup-add_opened')) {
     popupAddElement.classList.remove('popup-add_opened');
@@ -34,6 +36,8 @@ function togglePopupEdit() {
     about.value =  profileAbout.textContent;
   }
 }
+
+
 
 function takeData() {
   event.preventDefault();
@@ -83,6 +87,7 @@ function addCard(cardName, cardLink) {
 }
 
 
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -117,6 +122,9 @@ closeButtonEdit.addEventListener('click', togglePopupEdit);
 formEdit.addEventListener('submit', changeName);
 formAdd.addEventListener('submit', takeData);
 
+
 initialCards.forEach(function(item) {
   addCard(item.name, item.link);
 });
+
+

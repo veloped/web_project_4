@@ -1,6 +1,7 @@
 @import url('__card/grid__card.css');
 @import url('__image/grid__image.css');
 @import url('__like/grid__like.css');
+@import url('__like/_on/grid__like_on.css');
 @import url('__list/grid__list.css');
 @import url('__name/grid__name.css');
 @import url('__text/grid__text.css');
