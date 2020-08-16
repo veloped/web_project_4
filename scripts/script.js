@@ -53,9 +53,14 @@ function addCard(cardTitle, cardLink) {
 
   list.prepend(cardElement);
 
-  cardLikeButton.addEventListener('click',function () {
-    cardLikeButton.classList.toggle('grid__like_on');
+  cardLikeButton.addEventListener('click',function(evt) {
+    evt.target.classList.toggle('grid__like_on');
   });
+
+  cardDeleteButton.addEventListener('click', function() {
+    const deleteCard = cardDeleteButton.closest('.grid__card');
+    deleteCard.remove();
+    });
 }
 
 function takeData() {
