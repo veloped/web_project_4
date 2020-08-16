@@ -15,6 +15,8 @@ const addButton = document.querySelector('.profile__button');
 const popupAddElement = document.querySelector('.popup_type_add');
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.grid__card');
 const list = document.querySelector('.grid__list');
+const popupImageElement = document.querySelector('.popup_type_image');
+const imageCloseButton = document.querySelector('.form__close-button_image');
 
 
 
@@ -61,6 +63,17 @@ function addCard(cardTitle, cardLink) {
     const deleteCard = cardDeleteButton.closest('.grid__card');
     deleteCard.remove();
     });
+
+  const popupImage = document.querySelector('.popup__image');
+  const popupCaption = document.querySelector('.popup__caption');
+  console.log(popupCaption);
+
+  cardImage.addEventListener('click', function() {
+   popupImageElement.classList.toggle('popup_opened')
+   popupImage.src = cardLink;
+   popupImage.alt = cardTitle;
+   popupCaption.textContent = cardTitle;
+  });
 }
 
 function takeData() {
@@ -124,7 +137,9 @@ editButton.addEventListener('click', togglePopupEdit);
 closeButtonEdit.addEventListener('click', togglePopupEdit);
 formEdit.addEventListener('submit', changeName);
 formAdd.addEventListener('submit', takeData);
-
+imageCloseButton.addEventListener('click', function() {
+  popupImageElement.classList.toggle('popup_opened');
+});
 
 
 

@@ -12,3 +12,27 @@
 
 
 
+.popup__image {
+  margin: 0;
+  max-height: 75vh;
+  max-width: 100%;
+
+}
+
+.popup__content {
+
+  position: relative;
+  max-width: 90%;
+}
+
+.popup__caption {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+  margin-top: 10px;
+}
+
+
+
+
