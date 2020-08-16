@@ -1,5 +1,5 @@
 const editButton = document.querySelector('.profile__edit');
-const popupEditElement = document.querySelector('.popup-edit');
+const popupEditElement = document.querySelector('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.form__close-button_edit');
 const closeButtonAdd = document.querySelector('.form__close-button_add');
 const formEdit = document.querySelector('.form_edit');
@@ -12,7 +12,7 @@ const name = document.querySelector('.form__input_type_name');
 const about = document.querySelector('.form__input_type_about');
 const gridList = document.querySelector('.grid__list');
 const addButton = document.querySelector('.profile__button');
-const popupAddElement = document.querySelector('.popup-add');
+const popupAddElement = document.querySelector('.popup_type_add');
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.grid__card');
 const list = document.querySelector('.grid__list');
 
@@ -20,20 +20,20 @@ const list = document.querySelector('.grid__list');
 
 
 function togglePopupAdd() {
-  if (popupAddElement.classList.contains('popup-add_opened')) {
-    popupAddElement.classList.remove('popup-add_opened');
+  if (popupAddElement.classList.contains('popup_opened')) {
+    popupAddElement.classList.remove('popup_opened');
     inputTitle.value = "";
     inputLink.value = "";
   }else{
-    popupAddElement.classList.add('popup-add_opened');
+    popupAddElement.classList.add('popup_opened');
   }
 }
 
 function togglePopupEdit() {
-  if (popupEditElement.classList.contains('popup-edit_opened')) {
-    popupEditElement.classList.remove('popup-edit_opened');
+  if (popupEditElement.classList.contains('popup_opened')) {
+    popupEditElement.classList.remove('popup_opened');
   }else{
-    popupEditElement.classList.add('popup-edit_opened');
+    popupEditElement.classList.add('popup_opened');
     name.value =  profileName.textContent;
     about.value =  profileAbout.textContent;
   }
