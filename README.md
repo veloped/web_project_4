@@ -1,10 +1,15 @@
 # Around the U.S.
-### Web Project 4
+### Web Project 5
 ##### by Nikita Veloped
 ˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙
 ### URL to the project:
 
-https://veloped.github.io/web_project_4/index.html
+https://veloped.github.io/web_project_5/index.html
+
+### Updates:
+
+* Added functionality: adding custom cards, deleting cards, like buttons.
+* View pictures in a popup window.
 
 ### Technologies used:
 
@@ -15,3 +20,4 @@ https://veloped.github.io/web_project_4/index.html
 * Hover transitions.
 * Input forms.
 * JavaScript.
+* CSS animation.
