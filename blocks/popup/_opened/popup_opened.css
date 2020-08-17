@@ -1,6 +1,29 @@
+
 .popup_opened {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.popup_active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.popup_transition.popup_opened {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.popup_transition {
+  transition: opacity 0.5s ease;
+}
+.popup_hidden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
 }
 
