@@ -22,7 +22,7 @@ function togglePopup(element) {
  element.classList.toggle('popup_opened');
 };
 
-function changeName() {
+function changeProfileData() {
   event.preventDefault();
 
   profileName.textContent = name.value;
@@ -67,7 +67,7 @@ function addCard(cardTitle, cardLink) {
   return cardElement;
 }
 
-function takeData() {
+function handleCardData() {
   event.preventDefault();
 
   const title = inputTitle.value;
@@ -136,8 +136,8 @@ closeButtonEdit.addEventListener('click', function () {
   togglePopup(popupEditElement)
 });
 
-formEdit.addEventListener('submit', changeName);
-formAdd.addEventListener('submit', takeData);
+formEdit.addEventListener('submit', changeProfileData);
+formAdd.addEventListener('submit', handleCardData);
 
 imageCloseButton.addEventListener('click', function () {
   togglePopup(popupImageElement);
