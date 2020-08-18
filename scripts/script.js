@@ -45,7 +45,7 @@ function addCard(cardTitle, cardLink) {
   cardImage.src = cardLink;
   cardImage.alt = cardTitle;
 
-  list.prepend(cardElement);
+
 
   cardLikeButton.addEventListener('click',function(evt) {
     evt.target.classList.toggle('grid__like_on');
@@ -63,6 +63,8 @@ function addCard(cardTitle, cardLink) {
     popupImage.alt = cardTitle;
     popupCaption.textContent = cardTitle;
   });
+
+  return cardElement;
 }
 
 function takeData() {
@@ -73,7 +75,7 @@ function takeData() {
 
 
   if ((title != "") && (link != "")) {
-    addCard(title, link);
+    list.prepend(addCard(title, link));
     togglePopup(popupAddElement);
   }
 }
@@ -110,7 +112,8 @@ const initialCards = [
 ];
 
 initialCards.forEach(function (data) {
-  addCard(data.name, data.link);
+  list.prepend(addCard(data.name, data.link));
+
 });
 
 addButton.addEventListener('click', function () {
@@ -118,21 +121,26 @@ addButton.addEventListener('click', function () {
   inputTitle.value = "";
   inputLink.value = "";
 });
+
 closeButtonAdd.addEventListener('click', function () {
   togglePopup(popupAddElement)
 });
+
 editButton.addEventListener('click', function () {
   togglePopup(popupEditElement)
   name.value =  profileName.textContent;
   about.value =  profileAbout.textContent;
 });
+
 closeButtonEdit.addEventListener('click', function () {
   togglePopup(popupEditElement)
 });
+
 formEdit.addEventListener('submit', changeName);
 formAdd.addEventListener('submit', takeData);
+
 imageCloseButton.addEventListener('click', function () {
-  popupImageElement.classList.toggle('popup_opened');
+  togglePopup(popupImageElement);
 });
 
 
