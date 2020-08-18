@@ -10,7 +10,6 @@ const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 const name = document.querySelector('.form__input_type_name');
 const about = document.querySelector('.form__input_type_about');
-const gridList = document.querySelector('.grid__list');
 const addButton = document.querySelector('.profile__button');
 const popupAddElement = document.querySelector('.popup_type_add');
 const cardTemplate = document.querySelector('.card-template').content.querySelector('.grid__card');
