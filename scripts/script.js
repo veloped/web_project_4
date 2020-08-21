@@ -201,8 +201,9 @@ closeButtonAdd.addEventListener('click', function () {
 
 editButton.addEventListener('click', function () {
   togglePopup(popupEditElement)
-  //name.value =  profileName.textContent;
-  //about.value =  profileAbout.textContent;
+  name.value =  profileName.textContent;
+  about.value =  profileAbout.textContent;
+  enableValidation();
 });
 
 closeButtonEdit.addEventListener('click', function () {
