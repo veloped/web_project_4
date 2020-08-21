@@ -20,6 +20,92 @@ const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
 const formError = form.querySelector(`#${formInput.id}-error`);
 
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg"
+  }
+];
+
+function togglePopup(element) {
+  element.classList.toggle('popup_opened');
+}
+ 
+function changeProfileData() {
+   event.preventDefault();
+ 
+   profileName.textContent = name.value;
+   profileAbout.textContent = about.value;
+ 
+   togglePopup(popupEditElement);
+}
+ 
+function addCard(cardTitle, cardLink) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImage = cardElement.querySelector('.grid__image');
+  const cardName = cardElement.querySelector('.grid__name');
+  const cardLikeButton = cardElement.querySelector('.grid__like');
+  const cardDeleteButton = cardElement.querySelector('.grid__delete');
+  const popupImage = document.querySelector('.popup__image');
+  const popupCaption = document.querySelector('.popup__caption');
+ 
+ 
+  cardName.textContent = cardTitle;
+  cardImage.src = cardLink;
+  cardImage.alt = cardTitle;
+ 
+ 
+ 
+  cardLikeButton.addEventListener('click',function(evt) {
+    evt.target.classList.toggle('grid__like_on');
+  });
+ 
+  cardDeleteButton.addEventListener('click', function() {
+    const deleteCard = cardDeleteButton.closest('.grid__card');
+    deleteCard.remove();
+  });
+ 
+ 
+  cardImage.addEventListener('click', function () {
+    togglePopup(popupImageElement);
+    popupImage.src = cardLink;
+    popupImage.alt = cardTitle;
+    popupCaption.textContent = cardTitle;
+  });
+ 
+    return cardElement;
+ }
+ 
+function handleCardData() {
+  event.preventDefault();
+ 
+  const title = inputTitle.value;
+  const link = inputLink.value;
+  
+  list.prepend(addCard(title, link));
+  togglePopup(popupAddElement);
+}
+ 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("form__button_disabled");
@@ -92,99 +178,6 @@ form.addEventListener("submit", function (evt) {
 formInput.addEventListener("input", function() {
   isValid(form, formInput);
 });
-
-function togglePopup(element) {
- element.classList.toggle('popup_opened');
-};
-
-function changeProfileData() {
-  event.preventDefault();
-
-  profileName.textContent = name.value;
-  profileAbout.textContent = about.value;
-
-  togglePopup(popupEditElement);
-}
-
-function addCard(cardTitle, cardLink) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector('.grid__image');
-  const cardName = cardElement.querySelector('.grid__name');
-  const cardLikeButton = cardElement.querySelector('.grid__like');
-  const cardDeleteButton = cardElement.querySelector('.grid__delete');
-  const popupImage = document.querySelector('.popup__image');
-  const popupCaption = document.querySelector('.popup__caption');
-
-
-  cardName.textContent = cardTitle;
-  cardImage.src = cardLink;
-  cardImage.alt = cardTitle;
-
-
-
-  cardLikeButton.addEventListener('click',function(evt) {
-    evt.target.classList.toggle('grid__like_on');
-  });
-
-  cardDeleteButton.addEventListener('click', function() {
-    const deleteCard = cardDeleteButton.closest('.grid__card');
-    deleteCard.remove();
-    });
-
-
-  cardImage.addEventListener('click', function () {
-    togglePopup(popupImageElement);
-    popupImage.src = cardLink;
-    popupImage.alt = cardTitle;
-    popupCaption.textContent = cardTitle;
-  });
-
-  return cardElement;
-}
-
-function handleCardData() {
-  event.preventDefault();
-
-  const title = inputTitle.value;
-  const link = inputLink.value;
-
-
-  
-    list.prepend(addCard(title, link));
-    togglePopup(popupAddElement);
-  
-}
-
-
-
-
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
 
 initialCards.forEach(function (data) {
   list.prepend(addCard(data.name, data.link));
