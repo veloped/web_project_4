@@ -1,0 +1,13 @@
+.form__input-error {
+    height: 30px;
+    width: 84%;
+    margin: 0 auto;
+    color: red;
+    font-size: 12px;
+    line-height: 15px;
+    visibility: hidden;
+}
+
+.form__input-error:nth-child(5) {
+    margin-bottom: 18px;
+}
