@@ -13,25 +13,25 @@
 
 <body class="body">
   <div class="page">
-    <div class="popup popup_type_edit">
+    <div class="popup  popup_type_edit">
       <form novalidate action="#" class="form form_edit" name="profile">
         <h2 class="form__title">Edit profile</h2>
         <input id="name-input" required minlength="2" maxlength="40" type="text" name="name" class="form__input form__input_type_name" value="" placeholder="Name">
         <span id="name-input-error" class="form__input-error"></span>
         <input id="about-input" required minlength="2" maxlength="200" type="text" name="about" class="form__input form__input_type_about" value="" placeholder="About me">
         <span id="about-input-error" class="form__input-error"></span>
-        <button class="form__button " type="submit">Save</button>
+        <button class="form__button" type="submit">Save</button>
         <button class="form__close-button form__close-button_edit" aria-label="Close Button" type="button"></button>
       </form>
     </div>
-    <div class="popup popup_opened popup_type_add">
+    <div class="popup popup_type_add">
       <form novalidate action="#" class="form form_add" name="profile">
         <h2 class="form__title">New place</h2>
         <input id="title-input" required required minlength="2" maxlength="30" type="text" name="title" class="form__input form__input_type_title" value="" placeholder="Title">
         <span id="title-input-error" class="form__input-error"></span>
         <input required id="link-input" type="url" name="link" class="form__input form__input_type_link" value="" placeholder="Image link">
         <span id="link-input-error" class="form__input-error"></span>
-        <button class="form__button " type="submit">Create</button>
+        <button class="form__button" type="submit">Create</button>
         <button class="form__close-button form__close-button_add" aria-label="Close Button" type="button"></button>
       </form>
     </div>

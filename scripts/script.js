@@ -20,6 +20,20 @@ const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
 const formError = form.querySelector(`#${formInput.id}-error`);
 
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add("form__button_disabled");
+  } else {
+    buttonElement.classList.remove("form__button_disabled");
+  }
+};
+
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  })
+};
+
 const showInputError = (formElement, inputElement, errorMessage) => {
   inputElement.classList.add("form__input_type_error");  
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
@@ -36,7 +50,7 @@ const hideInputError = (formElement, inputElement) => {
   
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -46,11 +60,14 @@ const checkInputValidity = (formElement, inputElement) => {
 
 function setEventListeners(formElement) {
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".form__button");
+  toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
-  inputElement.addEventListener("input", function () {
-    checkInputValidity(formElement, inputElement);
+    inputElement.addEventListener("input", function () {
+      isValid(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
   });
-});
 }
 
 function enableValidation() {
@@ -65,12 +82,13 @@ function enableValidation() {
 
 enableValidation();
 
+
 form.addEventListener("submit", function (evt) {
   evt.preventDefault();
 });
 
 formInput.addEventListener("input", function() {
-  checkInputValidity(form, formInput);
+  isValid(form, formInput);
 });
 
 function togglePopup(element) {
@@ -183,8 +201,8 @@ closeButtonAdd.addEventListener('click', function () {
 
 editButton.addEventListener('click', function () {
   togglePopup(popupEditElement)
-  name.value =  profileName.textContent;
-  about.value =  profileAbout.textContent;
+  //name.value =  profileName.textContent;
+  //about.value =  profileAbout.textContent;
 });
 
 closeButtonEdit.addEventListener('click', function () {
