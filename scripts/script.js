@@ -59,6 +59,16 @@ function changeProfileData() {
  
    togglePopup(popupEditElement);
 }
+
+function handleCardData() {
+  event.preventDefault();
+ 
+  const title = inputTitle.value;
+  const link = inputLink.value;
+  
+  list.prepend(addCard(title, link));
+  togglePopup(popupAddElement);
+}
  
 function addCard(cardTitle, cardLink) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -96,15 +106,7 @@ function addCard(cardTitle, cardLink) {
     return cardElement;
  }
  
-function handleCardData() {
-  event.preventDefault();
- 
-  const title = inputTitle.value;
-  const link = inputLink.value;
-  
-  list.prepend(addCard(title, link));
-  togglePopup(popupAddElement);
-}
+
  
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
