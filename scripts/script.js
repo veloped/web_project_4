@@ -23,8 +23,10 @@ const formError = form.querySelector(`#${formInput.id}-error`);
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("form__button_disabled");
+    buttonElement.setAttribute("disabled", true);
   } else {
     buttonElement.classList.remove("form__button_disabled");
+    buttonElement.removeAttribute("disabled", false);
   }
 };
 
@@ -147,10 +149,10 @@ function handleCardData() {
   const link = inputLink.value;
 
 
-  if ((title != "") && (link != "")) {
+  
     list.prepend(addCard(title, link));
     togglePopup(popupAddElement);
-  }
+  
 }
 
 
