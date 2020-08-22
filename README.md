@@ -1,15 +1,15 @@
 # Around the U.S.
-### Web Project 5
+### Web Project 6
 ##### by Nikita Veloped
 ˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙
 ### URL to the project:
 
-https://veloped.github.io/web_project_5/index.html
+https://veloped.github.io/web_project_6/index.html
 
 ### Updates:
 
-* Added functionality: adding custom cards, deleting cards, like buttons.
-* View pictures in a popup window.
+* Added form validation.
+* Added closing popup windows by pressing ESC and clicking on outside area.
 
 ### Technologies used:
 
