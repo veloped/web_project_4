@@ -25,3 +25,7 @@
     opacity: .6;
   }
 }
+
+.profile__button:focus {
+  outline: none;
+}

@@ -15,3 +15,7 @@
 .grid__like:hover {
   opacity: .6;
 }
+
+.grid__like:focus {
+  outline: none;
+}
