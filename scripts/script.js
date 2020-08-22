@@ -52,8 +52,6 @@ function togglePopup(element) {
 }
  
 function changeProfileData() {
-   event.preventDefault();
- 
    profileName.textContent = name.value;
    profileAbout.textContent = about.value;
  
@@ -61,8 +59,6 @@ function changeProfileData() {
 }
 
 function handleCardData() {
-  event.preventDefault();
- 
   const title = inputTitle.value;
   const link = inputLink.value;
   
@@ -168,8 +164,17 @@ closeButtonEdit.addEventListener('click', function () {
   togglePopup(popupEditElement)
 });
 
-formEdit.addEventListener('submit', changeProfileData);
-formAdd.addEventListener('submit', handleCardData);
+formEdit.addEventListener('submit', (evt) =>  {
+  evt.preventDefault();
+  changeProfileData();
+});
+
+formAdd.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  handleCardData()
+});
+
+
 
 imageCloseButton.addEventListener('click', function () {
   togglePopup(popupImageElement);

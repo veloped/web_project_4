@@ -11,6 +11,10 @@
   margin-left: 17px;
   cursor: pointer;
   transition-duration: .5s;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-indent: -9999px;
 }
 
 @media screen and (min-width: 700px) {

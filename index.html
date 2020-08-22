@@ -27,7 +27,7 @@
     <div class="popup popup_type_add">
       <form novalidate action="#" class="form form_add" name="profile">
         <h2 class="form__title">New place</h2>
-        <input id="title-input" required required minlength="2" maxlength="30" type="text" name="title" class="form__input form__input_type_title" value="" placeholder="Title">
+        <input id="title-input" required minlength="2" maxlength="30" type="text" name="title" class="form__input form__input_type_title" value="" placeholder="Title">
         <span id="title-input-error" class="form__input-error"></span>
         <input required id="link-input" type="url" name="link" class="form__input form__input_type_link" value="" placeholder="Image link">
         <span id="link-input-error" class="form__input-error"></span>
@@ -36,12 +36,12 @@
       </form>
     </div>
     <div class="popup popup_type_image">
-      <div class="popup__content">
+      <figure class="popup__content">
 
           <button class="form__close-button form__close-button_image" aria-label="Close Button" type="button"></button>
           <img class="popup__image" src="" alt="">
           <figcaption class="popup__caption"></figcaption>
-      </div>
+      </figure>
     </div>
     <div class="page__container">
       <header class="header">
@@ -54,7 +54,7 @@
           <div class="profile__textbox">
             <div class="profile__line">
               <h1 class="profile__name">Jacques Cousteau</h1>
-              <button class="profile__edit"></button>
+              <button class="profile__edit">Edit</button>
             </div>
             <p class="profile__about">Explorer</p>
           </div>
