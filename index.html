@@ -13,8 +13,33 @@
 
 <body class="body">
   <div class="page">
-    
-    
+
+    <div class="page__container">
+      <header class="header">
+        <img class="header__logo" src="images/logo.svg" alt="logo">
+      </header>
+
+      <main class="content">
+        <section class="profile">
+          <img class="profile__avatar" src="images/cousteau.png" alt="avatar">
+          <div class="profile__textbox">
+            <div class="profile__line">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button class="profile__edit">Edit</button>
+            </div>
+            <p class="profile__about">Explorer</p>
+          </div>
+          <button class="profile__button"></button>
+        </section>
+        <section class="grid">
+          <ul class="grid__list"></ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">© 2020 Around The U.S.</p>
+      </footer>
+    </div>
+
     <div class="popup  popup_type_edit">
       <form novalidate action="#" class="form form_edit" name="profile">
         <h2 class="form__title">Edit profile</h2>
@@ -45,34 +70,7 @@
           <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
-    
-    <div class="page__container">
-      <header class="header">
-        <img class="header__logo" src="images/logo.svg" alt="logo">
-      </header>
 
-      <main class="content">
-        <section class="profile">
-          <img class="profile__avatar" src="images/cousteau.png" alt="avatar">
-          <div class="profile__textbox">
-            <div class="profile__line">
-              <h1 class="profile__name">Jacques Cousteau</h1>
-              <button class="profile__edit">Edit</button>
-            </div>
-            <p class="profile__about">Explorer</p>
-          </div>
-          <button class="profile__button"></button>
-        </section>
-        <section class="grid">
-          <ul class="grid__list"></ul>
-        </section>
-      </main>
-      <footer class="footer">
-        <p class="footer__copyright">© 2020 Around The U.S.</p>
-      </footer>
-      
-      
-    </div>
   </div>
 <template class="card-template">
   <li class="grid__card">
@@ -87,5 +85,4 @@
 <script src="scripts/script.js"></script>
 <script src="scripts/validate.js"></script>
 </body>
-
 </html>
