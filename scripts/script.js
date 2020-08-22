@@ -78,14 +78,11 @@ function addCard(cardTitle, cardLink) {
   const cardDeleteButton = cardElement.querySelector('.grid__delete');
   const popupImage = document.querySelector('.popup__image');
   const popupCaption = document.querySelector('.popup__caption');
- 
- 
+  
   cardName.textContent = cardTitle;
   cardImage.src = cardLink;
   cardImage.alt = cardTitle;
- 
- 
- 
+  
   cardLikeButton.addEventListener('click',function(evt) {
     evt.target.classList.toggle('grid__like_on');
   });
@@ -94,8 +91,7 @@ function addCard(cardTitle, cardLink) {
     const deleteCard = cardDeleteButton.closest('.grid__card');
     deleteCard.remove();
   });
- 
- 
+  
   cardImage.addEventListener('click', function () {
     togglePopup(popupImageElement);
     popupImage.src = cardLink;
@@ -103,10 +99,30 @@ function addCard(cardTitle, cardLink) {
     popupCaption.textContent = cardTitle;
   });
  
-    return cardElement;
+  return cardElement;
 }
- 
 
+function setEventListeners(formElement) {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".form__button");
+  toggleButtonState(inputList, buttonElement);
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      isValid(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
+    });
+  });
+}
+
+function enableValidation() {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+  formElement.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+  });
+  setEventListeners(formElement);
+});
+}
  
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
@@ -147,28 +163,6 @@ const isValid = (formElement, inputElement) => {
     hideInputError(formElement, inputElement);
   }
 };
-
-function setEventListeners(formElement) {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const buttonElement = formElement.querySelector(".form__button");
-  toggleButtonState(inputList, buttonElement);
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
-      isValid(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
-    });
-  });
-}
-
-function enableValidation() {
-  const formList = Array.from(document.querySelectorAll(".form"));
-  formList.forEach((formElement) => {
-  formElement.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-  });
-  setEventListeners(formElement);
-});
-}
 
 enableValidation();
 
