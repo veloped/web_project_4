@@ -5,7 +5,7 @@
 @import url('__button/form__button.css');
 @import url("__button/_disabled/form__button_disabled.css");
 @import url('__title/form__title.css');
-@import url('__close-button/form__close-button.css');
+
 
 .form {
   position: relative;
@@ -17,7 +17,6 @@
   z-index: 6;
   display: flex;
   flex-direction: column;
-  width: 83%;
 }
 
 

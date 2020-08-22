@@ -14,6 +14,7 @@
 <body class="body">
   <div class="page">
     
+    
     <div class="popup  popup_type_edit">
       <form novalidate action="#" class="form form_edit" name="profile">
         <h2 class="form__title">Edit profile</h2>
@@ -22,7 +23,7 @@
         <input id="about-input" required minlength="2" maxlength="200" type="text" name="about" class="form__input form__input_type_about" value="" placeholder="About me">
         <span id="about-input-error" class="form__input-error"></span>
         <button class="form__button" type="submit">Save</button>
-        <button class="form__close-button form__close-button_edit" aria-label="Close Button" type="button"></button>
+        <button class="popup__close-button popup__close-button_edit" aria-label="Close Button" type="button"></button>
       </form>
     </div>
     <div class="popup popup_type_add">
@@ -33,13 +34,13 @@
         <input required id="link-input" type="url" name="link" class="form__input form__input_type_link" value="" placeholder="Image link">
         <span id="link-input-error" class="form__input-error"></span>
         <button class="form__button" type="submit">Create</button>
-        <button class="form__close-button form__close-button_add" aria-label="Close Button" type="button"></button>
+        <button class="popup__close-button popup__close-button_add" aria-label="Close Button" type="button"></button>
       </form>
     </div>
     <div class="popup popup_type_image">
       <figure class="popup__content">
 
-          <button class="form__close-button form__close-button_image" aria-label="Close Button" type="button"></button>
+          <button class="popup__close-button popup__close-button_image" aria-label="Close Button" type="button"></button>
           <img class="popup__image" src="" alt="">
           <figcaption class="popup__caption"></figcaption>
       </figure>
@@ -69,6 +70,7 @@
       <footer class="footer">
         <p class="footer__copyright">© 2020 Around The U.S.</p>
       </footer>
+      
       
     </div>
   </div>
