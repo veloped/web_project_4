@@ -62,3 +62,6 @@ function setEventListeners(formElement) {
   
   enableValidation();
   
+  formInput.addEventListener("input", () => {
+    isValid(form, formInput);
+  });

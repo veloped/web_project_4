@@ -79,16 +79,16 @@ function addCard(cardTitle, cardLink) {
   cardImage.src = cardLink;
   cardImage.alt = cardTitle;
   
-  cardLikeButton.addEventListener('click',function(evt) {
+  cardLikeButton.addEventListener('click', (evt) => {
     evt.target.classList.toggle('grid__like_on');
   });
  
-  cardDeleteButton.addEventListener('click', function() {
+  cardDeleteButton.addEventListener('click', () => {
     const deleteCard = cardDeleteButton.closest('.grid__card');
     deleteCard.remove();
   });
   
-  cardImage.addEventListener('click', function () {
+  cardImage.addEventListener('click', () => {
     togglePopup(popupImageElement);
     popupImage.src = cardLink;
     popupImage.alt = cardTitle;
@@ -98,69 +98,59 @@ function addCard(cardTitle, cardLink) {
   return cardElement;
 }
 
-overlay.forEach( function (item) {
-  item.addEventListener('click', function(evt) {
+overlay.forEach( (item) => {
+  item.addEventListener('click', (evt) => {
     if (evt.target === popupEditElement) {
       togglePopup(popupEditElement);
-      return;
-    }else if (evt.target === popupAddElement) {
+    } if (evt.target === popupAddElement) {
       togglePopup(popupAddElement);
-      return;
-    }else if (evt.target === popupImageElement) {
+    } if (evt.target === popupImageElement) {
       togglePopup(popupImageElement);
-      return;
     }  
   });
 });
 
-document.addEventListener('keydown', function(evt) {
+document.addEventListener('keydown', (evt) => {
   if (evt.key === "Escape") {
-    overlay.forEach( function (item) {
+    overlay.forEach( (item) => {
       if (item.classList.contains('popup_type_edit') && item.classList.contains('popup_opened')) {
         togglePopup(popupEditElement);
-        return;
-      }else if (item.classList.contains('popup_type_add') && item.classList.contains('popup_opened')) {
+      } if (item.classList.contains('popup_type_add') && item.classList.contains('popup_opened')) {
         togglePopup(popupAddElement);
-        return;
-      }else if (item.classList.contains('popup_type_image') && item.classList.contains('popup_opened')) {
+      } if (item.classList.contains('popup_type_image') && item.classList.contains('popup_opened')) {
         togglePopup(popupImageElement);
-        return;
       }   
     });
   }
 });
 
-form.addEventListener("submit", function (evt) {
+form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 });
 
-formInput.addEventListener("input", function() {
-  isValid(form, formInput);
-});
-
-initialCards.forEach(function (data) {
+initialCards.forEach( (data) => {
   list.prepend(addCard(data.name, data.link));
 
 });
 
-addButton.addEventListener('click', function () {
+addButton.addEventListener('click', () => {
   togglePopup(popupAddElement)
-  inputTitle.value = "";
-  inputLink.value = "";
+  inputTitle.value.reset();
+  inputLink.value.reset();
 });
 
-closeButtonAdd.addEventListener('click', function () {
+closeButtonAdd.addEventListener('click', () => {
   togglePopup(popupAddElement)
 });
 
-editButton.addEventListener('click', function () {
+editButton.addEventListener('click', () => {
   togglePopup(popupEditElement)
   name.value =  profileName.textContent;
   about.value =  profileAbout.textContent;
   enableValidation();
 });
 
-closeButtonEdit.addEventListener('click', function () {
+closeButtonEdit.addEventListener('click', () => {
   togglePopup(popupEditElement)
 });
 
@@ -174,9 +164,7 @@ formAdd.addEventListener('submit', (evt) => {
   handleCardData()
 });
 
-
-
-imageCloseButton.addEventListener('click', function () {
+imageCloseButton.addEventListener('click', () => {
   togglePopup(popupImageElement);
 });
 
