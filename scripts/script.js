@@ -19,7 +19,7 @@ const imageCloseButton = document.querySelector('.form__close-button_image');
 const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
 const formError = form.querySelector(`#${formInput.id}-error`);
-
+const overlay = document.querySelectorAll('.popup');
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -172,6 +172,22 @@ function enableValidation() {
 
 enableValidation();
 
+document.addEventListener('keydown', function(evt) {
+  if (evt.key === "Escape") {
+    overlay.forEach( function (item) {
+      if (item.classList.contains('popup_type_edit') && item.classList.contains('popup_opened')) {
+        togglePopup(popupEditElement);
+        return;
+      }else if (item.classList.contains('popup_type_add') && item.classList.contains('popup_opened')) {
+        togglePopup(popupAddElement);
+        return;
+      }else if (item.classList.contains('popup_type_image') && item.classList.contains('popup_opened')) {
+        togglePopup(popupImageElement);
+        return;
+      }   
+    });
+  }
+});
 
 form.addEventListener("submit", function (evt) {
   evt.preventDefault();
