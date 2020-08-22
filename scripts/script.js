@@ -104,7 +104,7 @@ function addCard(cardTitle, cardLink) {
   });
  
     return cardElement;
- }
+}
  
 
  
@@ -171,6 +171,21 @@ function enableValidation() {
 }
 
 enableValidation();
+
+overlay.forEach( function (item) {
+  item.addEventListener('click', function(evt) {
+    if (evt.target === popupEditElement) {
+      togglePopup(popupEditElement);
+      return;
+    }else if (evt.target === popupAddElement) {
+      togglePopup(popupAddElement);
+      return;
+    }else if (evt.target === popupImageElement) {
+      togglePopup(popupImageElement);
+      return;
+    }  
+  });
+});
 
 document.addEventListener('keydown', function(evt) {
   if (evt.key === "Escape") {
