@@ -135,8 +135,8 @@ initialCards.forEach( (data) => {
 
 addButton.addEventListener('click', () => {
   togglePopup(popupAddElement)
-  inputTitle.value.reset();
-  inputLink.value.reset();
+  inputTitle.value = "";
+  inputLink.value = "";
 });
 
 closeButtonAdd.addEventListener('click', () => {
