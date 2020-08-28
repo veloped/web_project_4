@@ -4,7 +4,7 @@
 ˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙
 ### URL to the project:
 
-https://veloped.github.io/web_project_6/index.html
+https://veloped.github.io/web_project_7/index.html
 
 ### Updates:
 
