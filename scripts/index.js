@@ -1,3 +1,4 @@
+import { initialCards, Card, handleCardData } from "./Card.js";
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.popup__close-button_edit');
@@ -11,43 +12,15 @@ const profileAbout = document.querySelector('.profile__about');
 const name = document.querySelector('.form__input_type_name');
 const about = document.querySelector('.form__input_type_about');
 const addButton = document.querySelector('.profile__button');
-const popupAddElement = document.querySelector('.popup_type_add');
-const cardTemplate = document.querySelector('.card-template').content.querySelector('.grid__card');
-const list = document.querySelector('.grid__list');
-const popupImageElement = document.querySelector('.popup_type_image');
+export const popupAddElement = document.querySelector('.popup_type_add');
+export const popupImageElement = document.querySelector('.popup_type_image');
 const imageCloseButton = document.querySelector('.popup__close-button_image');
 const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
 const formError = form.querySelector(`#${formInput.id}-error`);
 const overlay = document.querySelectorAll('.popup');
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
 
-function togglePopup(element) {
+export function togglePopup(element) {
   element.classList.toggle('popup_opened');
 }
  
@@ -58,45 +31,9 @@ function changeProfileData() {
    togglePopup(popupEditElement);
 }
 
-function handleCardData() {
-  const title = inputTitle.value;
-  const link = inputLink.value;
-  
-  list.prepend(addCard(title, link));
-  togglePopup(popupAddElement);
-}
+
  
-function addCard(cardTitle, cardLink) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector('.grid__image');
-  const cardName = cardElement.querySelector('.grid__name');
-  const cardLikeButton = cardElement.querySelector('.grid__like');
-  const cardDeleteButton = cardElement.querySelector('.grid__delete');
-  const popupImage = document.querySelector('.popup__image');
-  const popupCaption = document.querySelector('.popup__caption');
-  
-  cardName.textContent = cardTitle;
-  cardImage.src = cardLink;
-  cardImage.alt = cardTitle;
-  
-  cardLikeButton.addEventListener('click', (evt) => {
-    evt.target.classList.toggle('grid__like_on');
-  });
- 
-  cardDeleteButton.addEventListener('click', () => {
-    const deleteCard = cardDeleteButton.closest('.grid__card');
-    deleteCard.remove();
-  });
-  
-  cardImage.addEventListener('click', () => {
-    togglePopup(popupImageElement);
-    popupImage.src = cardLink;
-    popupImage.alt = cardTitle;
-    popupCaption.textContent = cardTitle;
-  });
- 
-  return cardElement;
-}
+
 
 overlay.forEach( (item) => {
   item.addEventListener('click', (evt) => {
@@ -128,10 +65,7 @@ form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 });
 
-initialCards.forEach( (data) => {
-  list.prepend(addCard(data.name, data.link));
 
-});
 
 addButton.addEventListener('click', () => {
   togglePopup(popupAddElement)
@@ -168,5 +102,9 @@ imageCloseButton.addEventListener('click', () => {
   togglePopup(popupImageElement);
 });
 
-
+initialCards.forEach( (item) => {
+  const card = new Card(item, ".card-template");
+  const cardElement = card.generateCard();
+  document.querySelector('.grid__list').prepend(cardElement);
+});
 
