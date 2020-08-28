@@ -1,5 +1,5 @@
 # Around the U.S.
-### Web Project 6
+### Web Project 7
 ##### by Nikita Veloped
 ˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙
 ### URL to the project:
