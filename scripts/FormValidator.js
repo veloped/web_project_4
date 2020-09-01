@@ -1,13 +1,4 @@
-export const settingsObject = {
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__button",
-  inactiveButtonClass: "form__button_disabled",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active"
-};
-
-export class FormValidator {
+export default class FormValidator {
   constructor(object, selector) {
     this._formSelector = object.formSelector,
     this._inputSelector = object.inputSelector,

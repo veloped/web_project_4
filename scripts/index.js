@@ -1,5 +1,5 @@
 import { initialCards, Card } from "./Card.js";
-import { settingsObject, FormValidator } from "./FormValidator.js";
+import FormValidator from "./FormValidator.js";
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.popup__close-button_edit');
@@ -20,6 +20,15 @@ const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
 const formError = form.querySelector(`#${formInput.id}-error`);
 const overlay = document.querySelectorAll('.popup');
+const settingsObject = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active"
+};
+
 
 export function togglePopup(element) {
   element.classList.toggle('popup_opened');
