@@ -25,8 +25,6 @@ export class FormValidator {
     this._setEventListeners();
   }
 
-  
-
   _setEventListeners() {
 
     const inputList = Array.from(this._selector.querySelectorAll(this._inputSelector));
@@ -64,8 +62,6 @@ export class FormValidator {
       return !inputElement.validity.valid;
     });
   }
-
-  
 
   _showInputError(inputElement, errorMessage) {
     inputElement.classList.add(this._inputErrorClass);  

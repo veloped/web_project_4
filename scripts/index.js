@@ -32,10 +32,6 @@ function changeProfileData() {
    togglePopup(popupEditElement);
 }
 
-
- 
-
-
 overlay.forEach( (item) => {
   item.addEventListener('click', (evt) => {
     if (evt.target === popupEditElement) {
@@ -66,8 +62,6 @@ form.addEventListener("submit", (evt) => {
   evt.preventDefault();
 });
 
-
-
 addButton.addEventListener('click', () => {
   togglePopup(popupAddElement)
   inputTitle.value = "";
@@ -79,13 +73,11 @@ closeButtonAdd.addEventListener('click', () => {
 });
 
 editButton.addEventListener('click', () => {
-  togglePopup(popupEditElement)
-  name.value =  profileName.textContent;
-  about.value =  profileAbout.textContent;
+  togglePopup(popupEditElement);
 });
 
 closeButtonEdit.addEventListener('click', () => {
-  togglePopup(popupEditElement)
+  togglePopup(popupEditElement);
 });
 
 formEdit.addEventListener('submit', (evt) =>  {
