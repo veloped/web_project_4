@@ -1,5 +1,6 @@
-import { initialCards, Card } from "./Card.js";
+import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import { popupImageElement, togglePopup } from "./utils.js";
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.popup__close-button_edit');
@@ -13,8 +14,7 @@ const profileAbout = document.querySelector('.profile__about');
 const name = document.querySelector('.form__input_type_name');
 const about = document.querySelector('.form__input_type_about');
 const addButton = document.querySelector('.profile__button');
-export const popupAddElement = document.querySelector('.popup_type_add');
-export const popupImageElement = document.querySelector('.popup_type_image');
+const popupAddElement = document.querySelector('.popup_type_add');
 const imageCloseButton = document.querySelector('.popup__close-button_image');
 const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
@@ -29,10 +29,32 @@ const settingsObject = {
   errorClass: "form__input-error_active"
 };
 
-
-export function togglePopup(element) {
-  element.classList.toggle('popup_opened');
-}
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg"
+  }
+];
  
 function changeProfileData() {
    profileName.textContent = name.value;

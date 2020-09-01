@@ -1,32 +1,6 @@
-import { togglePopup, popupImageElement, popupAddElement } from "./index.js";
-export const initialCards = [
-    {
-      name: "Yosemite Valley",
-      link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-    },
-    {
-      name: "Lake Louise",
-      link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-    },
-    {
-      name: "Bald Mountains",
-      link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-    },
-    {
-      name: "Latemar",
-      link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-    },
-    {
-      name: "Vanoise National Park",
-      link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-    },
-    {
-      name: "Lago di Braies",
-      link: "https://code.s3.yandex.net/web-code/lago.jpg"
-    }
-  ];
+import { openImage } from "./utils.js";
 
-  export class Card {
+export default class Card {
       constructor(data, cardSelector) {
           this._name = data.name;
           this._link = data.link;
@@ -65,14 +39,7 @@ export const initialCards = [
         this._element.querySelector('.grid__delete').closest('.grid__card').remove();
       }
 
-      _openImage() {
-        const popupImage = document.querySelector('.popup__image');
-        const popupCaption = document.querySelector('.popup__caption');
-        togglePopup(popupImageElement);
-        popupImage.src = this._link;
-        popupImage.alt = this._name;
-        popupCaption.textContent = this._name;
-      }
+      
 
       _setEventListeners() {
         this._element.querySelector('.grid__like').addEventListener("click", () => {
@@ -82,10 +49,12 @@ export const initialCards = [
           this._deleteCard();
         });
         this._element.querySelector('.grid__image').addEventListener("click", () => {
-          this._openImage();
+          openImage(this._name, this._link);
         });
      }
   }
+
+ 
 
 
  
