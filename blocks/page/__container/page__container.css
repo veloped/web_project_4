@@ -11,3 +11,9 @@
     max-width: 882px;
   }
 }
+
+@media screen and (min-width: 990px) {
+  .page__container {
+    min-width: 882px;
+  }
+}
