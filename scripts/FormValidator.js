@@ -1,4 +1,4 @@
-const settingsObject = {
+export const settingsObject = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
@@ -7,7 +7,7 @@ const settingsObject = {
   errorClass: "form__input-error_active"
 };
 
-class FormValidator {
+export class FormValidator {
   constructor(object, selector) {
     this._formSelector = object.formSelector,
     this._inputSelector = object.inputSelector,
@@ -84,11 +84,6 @@ class FormValidator {
 }
 
 
-const formList = Array.from(document.querySelectorAll('.form'));
-formList.forEach((item) => {
-  const instance = new FormValidator(settingsObject, item);
-  instance.enableValidation();
-});
 
 
   

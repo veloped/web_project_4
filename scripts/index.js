@@ -1,4 +1,5 @@
 import { initialCards, Card, handleCardData } from "./Card.js";
+import { settingsObject, FormValidator } from "./FormValidator.js";
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.popup__close-button_edit');
@@ -81,7 +82,6 @@ editButton.addEventListener('click', () => {
   togglePopup(popupEditElement)
   name.value =  profileName.textContent;
   about.value =  profileAbout.textContent;
-  enableValidation();
 });
 
 closeButtonEdit.addEventListener('click', () => {
@@ -108,3 +108,8 @@ initialCards.forEach( (item) => {
   document.querySelector('.grid__list').prepend(cardElement);
 });
 
+const formList = Array.from(document.querySelectorAll('.form'));
+formList.forEach((item) => {
+  const instance = new FormValidator(settingsObject, item);
+  instance.enableValidation();
+});
