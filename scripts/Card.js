@@ -90,12 +90,4 @@ export const initialCards = [
 
  
 
-  export function handleCardData() {
-      const data = {};
-      data.name = document.querySelector('.form__input_type_title').value;
-      data.link = document.querySelector('.form__input_type_link').value;
-      const card = new Card(data, ".card-template");
-      const cardElement = card.generateCard();
-      document.querySelector('.grid__list').prepend(cardElement);
-      togglePopup(popupAddElement);
-  }
+  

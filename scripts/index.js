@@ -1,4 +1,4 @@
-import { initialCards, Card, handleCardData } from "./Card.js";
+import { initialCards, Card } from "./Card.js";
 import { settingsObject, FormValidator } from "./FormValidator.js";
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
@@ -99,6 +99,16 @@ initialCards.forEach( (item) => {
   const cardElement = card.generateCard();
   document.querySelector('.grid__list').prepend(cardElement);
 });
+
+function handleCardData() {
+  const data = {};
+  data.name = document.querySelector('.form__input_type_title').value;
+  data.link = document.querySelector('.form__input_type_link').value;
+  const card = new Card(data, ".card-template");
+  const cardElement = card.generateCard();
+  document.querySelector('.grid__list').prepend(cardElement);
+  togglePopup(popupAddElement);
+}
 
 const formList = Array.from(document.querySelectorAll('.form'));
 formList.forEach((item) => {
