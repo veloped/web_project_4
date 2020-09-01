@@ -18,8 +18,8 @@ export const popupImageElement = document.querySelector('.popup_type_image');
 const imageCloseButton = document.querySelector('.popup__close-button_image');
 const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
-const formError = form.querySelector(`#${formInput.id}-error`);
 const overlay = document.querySelectorAll('.popup');
+
 const settingsObject = {
   formSelector: ".form",
   inputSelector: ".form__input",
