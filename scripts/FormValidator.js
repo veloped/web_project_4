@@ -1,11 +1,13 @@
 export default class FormValidator {
   constructor(object, selector) {
+    
     this._formSelector = object.formSelector,
     this._inputSelector = object.inputSelector,
     this._submitButtonSelector = object.submitButtonSelector,
     this._inactiveButtonClass = object.inactiveButtonClass,
     this._inputErrorClass = object.inputErrorClass,
     this._errorClass = object.errorClass,
+    //selector .form_edit or .form_add 
     this._selector = selector
   }
 
@@ -17,27 +19,33 @@ export default class FormValidator {
   }
 
   _setEventListeners() {
-
+    //needed set of forms is selected by this._selector
     const inputList = Array.from(this._selector.querySelectorAll(this._inputSelector));
+    //the right button is chosen automatically when the corresponding _selector is passed
     const buttonElement = this._selector.querySelector(this._submitButtonSelector);
     this._toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
+    inputList.forEach((inputElement) => {//inputElement = single input field
+      //event listeners on input 
+      
       inputElement.addEventListener('input', () => {
+         
+        this._isValid(inputElement);//runs error display in real time
 
-        this._isValid(inputElement);
         this._toggleButtonState(inputList, buttonElement);
       });
     });
   }
 
   _isValid(inputElement) {
-    if (!inputElement.validity.valid) {
+    
+    if (!inputElement.validity.valid) {//validity is an object that has a set of boolean properties and works with html validity attributes
       this._showInputError(inputElement, inputElement.validationMessage);
     } else {
       this._hideInputError(inputElement);
     }
   }
   
+  //if _hasInvalidInput tells it's invalid - the button is disabled
   _toggleButtonState(inputList, buttonElement) {
     if (this._hasInvalidInput(inputList)) {
       buttonElement.classList.add(this._inactiveButtonClass);
@@ -49,7 +57,8 @@ export default class FormValidator {
   }
 
   _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+    
+    return inputList.some((inputElement) => {//method some() checks if at least onq item in the list meets the conditional
       return !inputElement.validity.valid;
     });
   }

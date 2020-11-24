@@ -19,7 +19,7 @@ export default class Card {
       }
 
       generateCard() {
-        this._element = this._getTemplate();
+        this._element = this._getTemplate();//_element = card 
         this._setEventListeners();
 
         this._element.querySelector('.grid__name').textContent = this._name;

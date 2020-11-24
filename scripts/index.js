@@ -1,6 +1,8 @@
+//imports 
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import { popupImageElement, togglePopup } from "./utils.js";
+//var declarations 
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.popup__close-button_edit');
@@ -20,6 +22,7 @@ const form = document.querySelector(".form");
 const formInput = form.querySelector(".form__input");
 const overlay = document.querySelectorAll('.popup');
 
+//settings object - list of form-related selectors
 const settingsObject = {
   formSelector: ".form",
   inputSelector: ".form__input",
@@ -63,6 +66,7 @@ function changeProfileData() {
    togglePopup(popupEditElement);
 }
 
+//overlay is selected by querySelectorAll and it's value is an array of popup types:
 overlay.forEach( (item) => {
   item.addEventListener('click', (evt) => {
     if (evt.target === popupEditElement) {
@@ -89,10 +93,12 @@ document.addEventListener('keydown', (evt) => {
   }
 });
 
-form.addEventListener("submit", (evt) => {
+//pressing enter at any point while filling out forms will submit them
+/*form.addEventListener("submit", (evt) => {
   evt.preventDefault();
-});
+});*/
 
+//event listeners for buttons:
 addButton.addEventListener('click', () => {
   togglePopup(popupAddElement)
   inputTitle.value = "";
@@ -125,12 +131,14 @@ imageCloseButton.addEventListener('click', () => {
   togglePopup(popupImageElement);
 });
 
+//Iteration over initial cards with Card class instances
 initialCards.forEach( (item) => {
   const card = new Card(item, ".card-template");
   const cardElement = card.generateCard();
   document.querySelector('.grid__list').prepend(cardElement);
 });
 
+//creating a new card through Card class
 function handleCardData() {
   const data = {};
   data.name = document.querySelector('.form__input_type_title').value;
@@ -141,8 +149,12 @@ function handleCardData() {
   togglePopup(popupAddElement);
 }
 
+
+
 const formList = Array.from(document.querySelectorAll('.form'));
+console.log(formList);
 formList.forEach((item) => {
   const instance = new FormValidator(settingsObject, item);
   instance.enableValidation();
 });
+
