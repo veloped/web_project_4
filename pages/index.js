@@ -1,7 +1,8 @@
 //imports 
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import { popupImageElement, togglePopup } from "./utils.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import { popupImageElement, togglePopup } from "../utils/utils.js";
+import { settingsObject, initialCards} from "../utils/constants.js";
 //var declarations 
 const editButton = document.querySelector('.profile__edit');
 const popupEditElement = document.querySelector('.popup_type_edit');
@@ -18,46 +19,11 @@ const about = document.querySelector('.form__input_type_about');
 const addButton = document.querySelector('.profile__button');
 const popupAddElement = document.querySelector('.popup_type_add');
 const imageCloseButton = document.querySelector('.popup__close-button_image');
-const form = document.querySelector(".form");
-const formInput = form.querySelector(".form__input");
 const overlay = document.querySelectorAll('.popup');
 
-//settings object - list of form-related selectors
-const settingsObject = {
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__button",
-  inactiveButtonClass: "form__button_disabled",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active"
-};
 
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
+
+
  
 function changeProfileData() {
    profileName.textContent = name.value;
@@ -152,7 +118,6 @@ function handleCardData() {
 
 
 const formList = Array.from(document.querySelectorAll('.form'));
-console.log(formList);
 formList.forEach((item) => {
   const instance = new FormValidator(settingsObject, item);
   instance.enableValidation();
