@@ -1,9 +1,10 @@
-import { openImage } from "../utils/utils.js";
+//import { openImage } from "../utils/utils.js";
 
 export default class Card {
-      constructor(data, cardSelector) {
+      constructor({ data, handleCardClick }, cardSelector) {
           this._name = data.name;
           this._link = data.link;
+          this._handleCardClick = handleCardClick;
           this.isLiked = false;
           this._cardSelector = cardSelector;
       }
@@ -49,7 +50,7 @@ export default class Card {
           this._deleteCard();
         });
         this._element.querySelector('.grid__image').addEventListener("click", () => {
-          openImage(this._name, this._link);
+         this._handleCardClick(this._name, this._link)
         });
      }
   }

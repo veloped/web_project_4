@@ -11,7 +11,7 @@ export default class Popup {
 
     
     close() {
-        console.log(this._popupElement);
+        console.log('popup closed');
         this._popupElement.classList.remove('popup_opened');
         document.removeEventListener("keydown", this._handleEscClose);
 
@@ -25,8 +25,9 @@ export default class Popup {
     }
 
     setEventListeners() {
+        console.log("listenersSet");
         this._popupElement.addEventListener("click", (evt) => {
-            if((evt.target === document.querySelector('.popup__close-button')) || (!evt.target.closest('.form'))) {   
+            if((evt.target === document.querySelector('.popup__close-button')) || (!evt.target.closest('.form')) || (!evt.target.closest('.popup__content'))) {   
             this.close();
             }
         });

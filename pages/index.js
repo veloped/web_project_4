@@ -1,13 +1,11 @@
-//imports 
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import { popupImageElement, togglePopup } from "../utils/utils.js";
 import { settingsObject, initialCards} from "../utils/constants.js";
-import Popup from "../components/Popup.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 //var declarations 
 const editButton = document.querySelector('.profile__edit');
-const popupEditElement = document.querySelector('.popup_type_edit');
+const popupEditElement = ('.popup_type_edit');
 const closeButtonEdit = document.querySelector('.popup__close-button_edit');
 const closeButtonAdd = document.querySelector('.popup__close-button_add');
 const formEdit = document.querySelector('.form_edit');
@@ -23,11 +21,10 @@ const popupAddElement = document.querySelector('.popup_type_add');
 const imageCloseButton = document.querySelector('.popup__close-button_image');
 const overlay = document.querySelectorAll('.popup');
 
-const closePopup = new Popup(".popup_type_edit");
+const imagePopup = new PopupWithImage(".popup_type_image");
 
-closePopup.open();
 
-closePopup.setEventListeners();
+
 
 
  
@@ -105,7 +102,14 @@ formAdd.addEventListener('submit', (evt) => {
 
 //Iteration over initial cards with Card class instances
 initialCards.forEach( (item) => {
-  const card = new Card(item, ".card-template");
+  const card = new Card({
+    data: item,
+    handleCardClick: (name, link) => {
+      const openPopup = new PopupWithImage('.popup_type_image');
+      openPopup.open(name, link);
+      openPopup.setEventListeners();
+    }
+  }, ".card-template");
   const cardElement = card.generateCard();
   document.querySelector('.grid__list').prepend(cardElement);
 });
