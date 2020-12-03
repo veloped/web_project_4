@@ -26,7 +26,7 @@ export default class Popup {
 
     setEventListeners() {
         this._popupElement.addEventListener("click", (evt) => {
-            if((evt.target === document.querySelector('.popup__close-button')) || (!evt.target.closest('.form'))) {   
+            if ((evt.target.classList.contains('.popup__close-button'))) /*|| (!evt.target.closest('.form')))*/    {
             this.close();
             }
         });
