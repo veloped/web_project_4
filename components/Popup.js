@@ -24,11 +24,11 @@ export default class Popup {
     }
 
     setEventListeners() {
-        this._popupElement.addEventListener("click", (evt) => {
-            if ((evt.target.classList.contains('.popup__close-button'))) /*|| (!evt.target.closest('.form')))*/    {
-            this.close();
+        this._popupElement.addEventListener("click", (e) => {
+            if((e.target < this._popupElement.querySelector(".form")) || (e.target < this._popupElement.querySelector(".popup__content"))   ) {
+                this.close();
             }
-        });
+        })
     }
 }
 
