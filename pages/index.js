@@ -15,21 +15,46 @@ const addButton = document.querySelector('.profile__button');
 
 
 
+const popupWithImage = new PopupWithImage('.popup_type_image');
+popupWithImage.setEventListeners();
+
+const popupAdd = new PopupWithForm({
+  popupSelector: ".popup_type_add",
+  submitForm: (data) => {
+    const cardInstance = new Card({
+      data: data,
+      handleCardClick: (name, link) => {
+      popupWithImage.open(name, link);      }
+    }, ".card-template");
+    const cardElement = cardInstance.generateCard();
+    cardList.addItem(cardElement);
+  }
+});
+popupAdd.setEventListeners();
+
+const popupEdit = new PopupWithForm({
+  popupSelector: ".popup_type_edit",
+  submitForm: (data) => {
+    console.log(data);
+    profileName.textContent = data.name;
+    profileAbout.textContent = data.about;
+  }
+});
+popupEdit.setEventListeners();
+
+
 //initial cards 
 
 const cardList = new Section ({
   items: initialCards,
-  renderer: (item) => {
-
-    const card = new Card({
-      data: item,
+  renderer: (data) => {
+    const cardInstance = new Card({
+      data: data,
       handleCardClick: (name, link) => {
-        const openImagePopup = new PopupWithImage('.popup_type_image');
-        openImagePopup.open(name, link);
-        openImagePopup.setEventListeners();
-      }
+      popupWithImage.open(name, link);      }
     }, ".card-template");
-    const cardElement = card.generateCard();
+    
+    const cardElement = cardInstance.generateCard();
     cardList.addItem(cardElement);
   }
 }, ".grid__list");
@@ -37,46 +62,16 @@ const cardList = new Section ({
 cardList.renderer();
 
 
-
-//add card popup
-
-addButton.addEventListener('click', () => {
-  const openAddPopup = new PopupWithForm({
-    popupSelector: ".popup_type_add",
-    submitForm: (data) => {
-      const card = new Card ({
-        data: data,
-        handleCardClick: (name, link) => {
-          const openImagePopup = new PopupWithImage('.popup_type_image');
-          openImagePopup.open(name, link);
-          openImagePopup.setEventListeners();
-        }
-      }, ".card-template");
-      const cardElement = card.generateCard();
-      cardList.addItem(cardElement);
-    }
-  });
-  
+addButton.addEventListener('click', () => {  
   inputTitle.value = "";
   inputLink.value = "";
-  openAddPopup.open();
-  openAddPopup.setEventListeners();
+  popupAdd.open();
 });
 
 
-//edit popup 
 
-editButton.addEventListener('click', () => {
-  const openEditPopup = new PopupWithForm({
-    popupSelector: ".popup_type_edit",
-    submitForm: (data) => {
-      console.log(data);
-      profileName.textContent = data.name;
-      profileAbout.textContent = data.about;
-    }
-  });
-  openEditPopup.open();
-  openEditPopup.setEventListeners();
+editButton.addEventListener('click', () => {  
+  popupEdit.open();
 });
 
 
