@@ -57,7 +57,6 @@ export default class FormValidator {
   }
 
   _hasInvalidInput(inputList) {
-    
     return inputList.some((inputElement) => {//method some() checks if at least onq item in the list meets the conditional
       return !inputElement.validity.valid;
     });

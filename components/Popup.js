@@ -25,9 +25,8 @@ export default class Popup {
     }
 
     setEventListeners() {
-        console.log("listenersSet");
         this._popupElement.addEventListener("click", (evt) => {
-            if((evt.target === document.querySelector('.popup__close-button')) || (!evt.target.closest('.form')) || (!evt.target.closest('.popup_type_image'))) {   
+            if((evt.target === document.querySelector('.popup__close-button')) || (!evt.target.closest('.form'))) {   
             this.close();
             }
         });

@@ -2,7 +2,7 @@
 
 export default class Card {
       constructor({ data, handleCardClick }, cardSelector) {
-          this._name = data.name;
+          this._name = data.title;
           this._link = data.link;
           this._handleCardClick = handleCardClick;
           this.isLiked = false;
@@ -22,7 +22,6 @@ export default class Card {
       generateCard() {
         this._element = this._getTemplate();//_element = card 
         this._setEventListeners();
-
         this._element.querySelector('.grid__name').textContent = this._name;
         this._element.querySelector('.grid__image').src = this._link;
         this._element.querySelector('.grid__image').alt = this._name;
