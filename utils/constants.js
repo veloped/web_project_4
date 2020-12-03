@@ -1,5 +1,4 @@
- //settings object - list of form-related selectors
- export const settingsObject = {
+export const settingsObject = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
@@ -34,3 +33,8 @@ export const initialCards = [
       link: "https://code.s3.yandex.net/web-code/lago.jpg"
     }
   ];
+
+export const editButton = document.querySelector('.profile__edit');
+export const inputTitle = document.querySelector('.form__input_type_title');
+export const inputLink = document.querySelector('.form__input_type_link');
+export const addButton = document.querySelector('.profile__button');
