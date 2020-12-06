@@ -28,7 +28,7 @@ export default class FormValidator {
       //event listeners on input 
       
       inputElement.addEventListener('input', () => {
-         
+         console.log("underdog");
         this._isValid(inputElement);//runs error display in real time
 
         this._toggleButtonState(inputList, buttonElement);

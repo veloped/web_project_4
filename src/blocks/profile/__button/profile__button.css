@@ -1,7 +1,7 @@
 .profile__button {
   margin-bottom: 11%;
   background-color: transparent;
-  background-image: url('../../../images/add.svg');
+  background-image: url('/src/images/add.svg');
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;

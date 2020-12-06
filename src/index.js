@@ -1,10 +1,11 @@
-import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
-import { settingsObject, initialCards, editButton, inputTitle, inputLink, addButton } from "../utils/constants.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js";
+import Card from "/src/components/Card.js";
+import FormValidator from "./components/FormValidator.js";
+import { settingsObject, initialCards, editButton, inputTitle, inputLink, addButton } from "./utils/constants.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import Section from "./components/Section.js";
+import UserInfo from "./components/UserInfo.js";
+import "/src/index.css";
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -70,8 +71,11 @@ editButton.addEventListener('click', () => {
 
 
 const formList = Array.from(document.querySelectorAll('.form'));
+console.log(formList);
+
 formList.forEach((item) => {
   const instance = new FormValidator(settingsObject, item);
   instance.enableValidation();
 });
+
 

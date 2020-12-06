@@ -1,5 +1,5 @@
 .grid__like {
-  background-image: url('../../../images/like.svg');
+  background-image: url('/src/images/like.svg');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

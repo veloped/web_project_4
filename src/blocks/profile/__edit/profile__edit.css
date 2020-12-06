@@ -1,5 +1,5 @@
 .profile__edit {
-  background-image: url(../../../images/edit.svg);
+  background-image: url('/src/images/edit.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
