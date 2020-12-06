@@ -9,7 +9,8 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "main.js"
       },
-     // stats: "verbose"
+    
+    stats: "verbose",
       
     module: {
         rules: [ 
