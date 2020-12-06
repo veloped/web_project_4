@@ -10,7 +10,7 @@ module.exports = {
         filename: "main.js"
       },
     
-    stats: "verbose",
+    //stats: "verbose",
       
     module: {
         rules: [ 
