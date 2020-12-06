@@ -71,7 +71,6 @@ editButton.addEventListener('click', () => {
 
 
 const formList = Array.from(document.querySelectorAll('.form'));
-console.log(formList);
 
 formList.forEach((item) => {
   const instance = new FormValidator(settingsObject, item);
