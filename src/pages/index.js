@@ -7,6 +7,7 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import "/src/pages/index.css";
 
+
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   jobSelector: ".profile__about"
@@ -54,7 +55,6 @@ const cardList = new Section ({
     cardList.addItem(cardElement);
   }
 }, ".grid__list");
-
 cardList.renderer();
 
 
@@ -71,7 +71,6 @@ editButton.addEventListener('click', () => {
 
 
 const formList = Array.from(document.querySelectorAll('.form'));
-
 formList.forEach((item) => {
   const instance = new FormValidator(settingsObject, item);
   instance.enableValidation();
