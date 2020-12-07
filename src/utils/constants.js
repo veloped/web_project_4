@@ -35,6 +35,4 @@ export const initialCards = [
   ];
 
 export const editButton = document.querySelector('.profile__edit');
-export const inputTitle = document.querySelector('.form__input_type_title');
-export const inputLink = document.querySelector('.form__input_type_link');
 export const addButton = document.querySelector('.profile__button');

@@ -27,6 +27,10 @@ function initiateCard(data) {
   return cardInstance;
 }
 
+function enableValidator(item) {
+  const instance = new FormValidator(settingsObject, item);
+  return instance;
+}
 
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
@@ -60,8 +64,8 @@ cardList.renderer();
 
 
 addButton.addEventListener('click', () => {  
-  inputTitle.value = "";
-  inputLink.value = "";
+  const instance = enableValidator(document.querySelector(".form_add"));
+  instance.resetForms();
   popupAdd.open();
 });
 
@@ -71,9 +75,10 @@ editButton.addEventListener('click', () => {
 });
 
 
+
 const formList = Array.from(document.querySelectorAll('.form'));
 formList.forEach((item) => {
-  const instance = new FormValidator(settingsObject, item);
+  const instance = enableValidator(item);
   instance.enableValidation();
 });
 
