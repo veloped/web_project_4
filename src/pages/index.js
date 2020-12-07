@@ -1,11 +1,11 @@
 import Card from "/src/components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import { settingsObject, initialCards, editButton, inputTitle, inputLink, addButton } from "./utils/constants.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import Section from "./components/Section.js";
-import UserInfo from "./components/UserInfo.js";
-import "/src/index.css";
+import FormValidator from "../components/FormValidator.js";
+import { settingsObject, initialCards, editButton, inputTitle, inputLink, addButton } from "../utils/constants.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import "/src/pages/index.css";
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
