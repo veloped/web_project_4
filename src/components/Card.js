@@ -1,5 +1,3 @@
-//import { openImage } from "../utils/utils.js";
-
 export default class Card {
       constructor({ data, handleCardClick }, cardSelector) {
           this._name = data.title;
@@ -20,13 +18,14 @@ export default class Card {
       }
 
       generateCard() {
-        this._element = this._getTemplate();//_element = card 
+        this._element = this._getTemplate();
+        const gridName = this._element.querySelector('.grid__name');
+        const gridImage = this._element.querySelector('.grid__image');
         this._setEventListeners();
-        this._element.querySelector('.grid__name').textContent = this._name;
-        this._element.querySelector('.grid__image').src = this._link;
-        this._element.querySelector('.grid__image').alt = this._name;
+        gridName.textContent = this._name;
+        gridImage.src = this._link;
+        gridImage.alt = this._name;
        
-
         return this._element;
       }
 
