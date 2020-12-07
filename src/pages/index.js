@@ -17,15 +17,21 @@ const userInfo = new UserInfo({
 const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
 
+function initiateCard(data) {
+  const cardInstance = new Card({ 
+    data: data,
+    handleCardClick: (name, link) => {
+    popupWithImage.open(name, link);      
+    }
+  }, ".card-template"); 
+  return cardInstance;
+}
+
 
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
   submitForm: (data) => {
-    const cardInstance = new Card({
-      data: data,
-      handleCardClick: (name, link) => {
-      popupWithImage.open(name, link);      }
-    }, ".card-template");
+    const cardInstance = initiateCard(data);
     const cardElement = cardInstance.generateCard();
     cardList.addItem(cardElement);
   }
@@ -45,12 +51,7 @@ popupEdit.setEventListeners();
 const cardList = new Section ({
   items: initialCards,
   renderer: (data) => {
-    const cardInstance = new Card({
-      data: data,
-      handleCardClick: (name, link) => {
-      popupWithImage.open(name, link);      }
-    }, ".card-template");
-    
+    const cardInstance = initiateCard(data);
     const cardElement = cardInstance.generateCard();
     cardList.addItem(cardElement);
   }
