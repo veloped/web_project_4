@@ -36,7 +36,7 @@ popupAdd.setEventListeners();
 const popupEdit = new PopupWithForm({
   popupSelector: ".popup_type_edit",
   submitForm: (data) => {
-    userInfo.setUsetInfo(data.name, data.about);
+    userInfo.setUserInfo(data.name, data.about);
   }
 });
 popupEdit.setEventListeners();
