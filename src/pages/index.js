@@ -13,6 +13,11 @@ const userInfo = new UserInfo({
   jobSelector: ".profile__about"
 });
 
+const addValidation = new FormValidator(settingsObject, document.querySelector(".form_add"));
+addValidation.enableValidation();
+const editValidation = new FormValidator(settingsObject, document.querySelector(".form_edit"));
+editValidation.enableValidation();
+
 
 const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
@@ -27,10 +32,6 @@ function initiateCard(data) {
   return cardInstance;
 }
 
-function enableValidator(item) {
-  const instance = new FormValidator(settingsObject, item);
-  return instance;
-}
 
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
@@ -64,8 +65,7 @@ cardList.renderer();
 
 
 addButton.addEventListener('click', () => {  
-  const instance = enableValidator(document.querySelector(".form_add"));
-  instance.resetForms();
+  addValidation.resetForms();
   popupAdd.open();
 });
 
@@ -73,13 +73,3 @@ addButton.addEventListener('click', () => {
 editButton.addEventListener('click', () => {  
   popupEdit.open();
 });
-
-
-
-const formList = Array.from(document.querySelectorAll('.form'));
-formList.forEach((item) => {
-  const instance = enableValidator(item);
-  instance.enableValidation();
-});
-
-
