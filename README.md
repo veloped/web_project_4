@@ -1,5 +1,5 @@
 # Around the U.S.
-### Web Project 7
+### Web Project 8
 ##### by Nikita Veloped
 ˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙˙
 ### URL to the project:
@@ -9,6 +9,7 @@ https://veloped.github.io/web_project_7/index.html
 ### Updates:
 
 * The code refactored according to Modular JavaScript standards 
+* All the functionality is managed by separate classes
 
 ### Technologies used:
 
@@ -21,3 +22,4 @@ https://veloped.github.io/web_project_7/index.html
 * JavaScript
 * CSS animation
 * Form validation
+* Project built using Webpack
