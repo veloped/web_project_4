@@ -16,7 +16,20 @@ export default class Api {
             }
         })
         .catch((err) => console.log(err));
+    }
 
+    getIUserInfo() {
+        return fetch(this._baseUrl + '/users/me', {
+            headers: this._headers
+        })
+        .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }else{
+            Promise.reject('Error #' + res.status);
+            }
+        })
+        .catch((err) => console.log(err));
     }
 
 }

@@ -8,6 +8,11 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import "/src/pages/index.css";
 
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  jobSelector: ".profile__about"
+});
+
 const api = new Api ({
   baseUrl: "https://around.nomoreparties.co/v1/group-6",
   headers: {
@@ -38,10 +43,11 @@ api.getCardList().then((res) => {
   
 }); 
 
-const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  jobSelector: ".profile__about"
-});
+api.getIUserInfo().then((res) => {
+  userInfo.setUserInfo({newName: res.name, newJob: res.about})
+})
+
+
 
 const addValidation = new FormValidator(settingsObject, document.querySelector(".form_add"));
 addValidation.enableValidation();
@@ -80,7 +86,7 @@ popupAdd.setEventListeners();
 const popupEdit = new PopupWithForm({
   popupSelector: ".popup_type_edit",
   submitForm: (data) => {
-    userInfo.setUserInfo(data.name, data.about);
+    userInfo.setUserInfo({newName: data.name, newJob: data.about});
   }
 });
 popupEdit.setEventListeners();
