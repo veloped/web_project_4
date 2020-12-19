@@ -74,3 +74,23 @@ addButton.addEventListener('click', () => {
 editButton.addEventListener('click', () => {  
   popupEdit.open();
 }); 
+
+ fetch('https://around.nomoreparties.co/v1/group-6/users/me', {
+    headers: {
+      authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
+    }
+  })
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
+  fetch('https://around.nomoreparties.co/v1/group-6/cards', {
+    headers: {
+      authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
+    }
+  })
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
