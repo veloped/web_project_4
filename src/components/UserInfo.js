@@ -16,7 +16,7 @@ export default class UserInfo {
     setUserInfo({newName, newJob, newAvatar}) {
         this._name.textContent = newName;
         this._job.textContent = newJob;
-        this._avatar.src = newAvatar;
+        this._avatar.style = `background-image: url('${newAvatar}')`;
 
     }
 }

@@ -3,6 +3,9 @@
   width: 40vw;
   height: 40vw;
   border-radius: 50%;
+  background-size: cover;
+  background-position-x: center;
+
 }
 
 @media screen and (min-width: 700px) {
