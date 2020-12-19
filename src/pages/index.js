@@ -74,10 +74,14 @@ const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
   submitForm: (data) => { 
 
-    const cardInstance = initiateCard(data);
-    const cardElement = cardInstance.generateCard();
-    cardList.addItem(cardElement);
-    addValidation.resetForms();
+    api.addCard(data).then(() => {
+      const cardInstance = initiateCard(data);
+      const cardElement = cardInstance.generateCard();
+      cardList.addItem(cardElement);
+      addValidation.resetForms();
+    })
+
+
     
   }
 });

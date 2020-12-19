@@ -32,5 +32,21 @@ export default class Api {
         .catch((err) => console.log(err));
     }
 
+    addCard({name, link}) {
+        return fetch(this._baseUrl + '/cards', {
+            headers: this._headers,
+            method: "POST",
+            body: JSON.stringify({name, link})
+        })
+        .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }else{
+            Promise.reject('Error #' + res.status);
+            }
+        })
+        .catch((err) => console.log(err));
+    }
+
 }
 
