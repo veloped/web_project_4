@@ -16,15 +16,14 @@ const api = new Api ({
   }
 });
 
-function initiateCard(data) {
-  const cardInstance = new Card({ 
-    data: data,
-    handleCardClick: (name, link) => {
-    popupWithImage.open(name, link);      
-    }
-  }, ".card-template"); 
-  return cardInstance;
-}
+const cardList = new Section ({
+  items: [],   
+  renderer: (data) => {
+    const cardInstance = initiateCard(data);
+    const cardElement = cardInstance.generateCard();
+    cardList.addItem(cardElement);
+  }
+}, ".grid__list");
  
 api.getCardList().then((res) => {
   const cardList = new Section ({
@@ -36,8 +35,8 @@ api.getCardList().then((res) => {
     }
   }, ".grid__list");
   cardList.renderer();
+  
 }); 
-
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -49,16 +48,25 @@ addValidation.enableValidation();
 const editValidation = new FormValidator(settingsObject, document.querySelector(".form_edit"));
 editValidation.enableValidation();
 
-
 const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
 
+function initiateCard(data) {
+  const cardInstance = new Card({ 
+    data: data,
+    handleCardClick: (name, link) => {
+    popupWithImage.open(name, link);      
+    }
+  }, ".card-template"); 
+  return cardInstance;
+}
 
 
 
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
-  submitForm: (data) => {
+  submitForm: (data) => { 
+
     const cardInstance = initiateCard(data);
     const cardElement = cardInstance.generateCard();
     cardList.addItem(cardElement);
@@ -90,25 +98,3 @@ editButton.addEventListener('click', () => {
   popupEdit.open();
 }); 
 
-
-
-
-//  fetch('https://around.nomoreparties.co/v1/group-6/users/me', {
-//     headers: {
-//       authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
-//     }
-//   })
-//   .then(res => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   });
-
-//   fetch('https://around.nomoreparties.co/v1/group-6/cards', {
-//     headers: {
-//       authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
-//     }
-//   })
-//   .then(res => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   });
