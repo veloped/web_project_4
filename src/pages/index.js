@@ -5,7 +5,38 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 import "/src/pages/index.css";
+
+const api = new Api ({
+  baseUrl: "https://around.nomoreparties.co/v1/group-6",
+  headers: {
+      authorization: "8291902b-8a53-40d3-b685-04332c2707d9",
+      "Content-type": "application/json"
+  }
+});
+
+function initiateCard(data) {
+  const cardInstance = new Card({ 
+    data: data,
+    handleCardClick: (name, link) => {
+    popupWithImage.open(name, link);      
+    }
+  }, ".card-template"); 
+  return cardInstance;
+}
+ 
+api.getCardList().then((res) => {
+  const cardList = new Section ({
+    items: res,   
+    renderer: (data) => {
+      const cardInstance = initiateCard(data);
+      const cardElement = cardInstance.generateCard();
+      cardList.addItem(cardElement);
+    }
+  }, ".grid__list");
+  cardList.renderer();
+}); 
 
 
 const userInfo = new UserInfo({
@@ -22,15 +53,7 @@ editValidation.enableValidation();
 const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
 
-function initiateCard(data) {
-  const cardInstance = new Card({ 
-    data: data,
-    handleCardClick: (name, link) => {
-    popupWithImage.open(name, link);      
-    }
-  }, ".card-template"); 
-  return cardInstance;
-}
+
 
 
 const popupAdd = new PopupWithForm({
@@ -55,15 +78,7 @@ const popupEdit = new PopupWithForm({
 popupEdit.setEventListeners();
 
 
-const cardList = new Section ({
-  items: initialCards,
-  renderer: (data) => {
-    const cardInstance = initiateCard(data);
-    const cardElement = cardInstance.generateCard();
-    cardList.addItem(cardElement);
-  }
-}, ".grid__list");
-cardList.renderer();
+
 
 
 addButton.addEventListener('click', () => {  
@@ -75,22 +90,25 @@ editButton.addEventListener('click', () => {
   popupEdit.open();
 }); 
 
- fetch('https://around.nomoreparties.co/v1/group-6/users/me', {
-    headers: {
-      authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
-    }
-  })
-  .then(res => res.json())
-  .then((result) => {
-    console.log(result);
-  });
 
-  fetch('https://around.nomoreparties.co/v1/group-6/cards', {
-    headers: {
-      authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
-    }
-  })
-  .then(res => res.json())
-  .then((result) => {
-    console.log(result);
-  });
+
+
+//  fetch('https://around.nomoreparties.co/v1/group-6/users/me', {
+//     headers: {
+//       authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
+//     }
+//   })
+//   .then(res => res.json())
+//   .then((result) => {
+//     console.log(result);
+//   });
+
+//   fetch('https://around.nomoreparties.co/v1/group-6/cards', {
+//     headers: {
+//       authorization: "8291902b-8a53-40d3-b685-04332c2707d9"
+//     }
+//   })
+//   .then(res => res.json())
+//   .then((result) => {
+//     console.log(result);
+//   });
