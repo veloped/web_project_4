@@ -39,6 +39,8 @@ const popupAdd = new PopupWithForm({
     const cardInstance = initiateCard(data);
     const cardElement = cardInstance.generateCard();
     cardList.addItem(cardElement);
+    addValidation.resetForms();
+    
   }
 });
 popupAdd.setEventListeners();
@@ -65,11 +67,10 @@ cardList.renderer();
 
 
 addButton.addEventListener('click', () => {  
-  addValidation.resetForms();
   popupAdd.open();
 });
 
 
 editButton.addEventListener('click', () => {  
   popupEdit.open();
-});
+}); 
