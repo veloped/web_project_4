@@ -10,7 +10,8 @@ import "/src/pages/index.css";
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
-  jobSelector: ".profile__about"
+  jobSelector: ".profile__about",
+  avatarSelector: ".profile__avatar"
 });
 
 const api = new Api ({
@@ -44,7 +45,7 @@ api.getCardList().then((res) => {
 }); 
 
 api.getIUserInfo().then((res) => {
-  userInfo.setUserInfo({newName: res.name, newJob: res.about})
+  userInfo.setUserInfo({newName: res.name, newJob: res.about, newAvatar: res.avatar})
 })
 
 

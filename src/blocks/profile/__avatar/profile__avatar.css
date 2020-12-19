@@ -1,12 +1,13 @@
 .profile__avatar {
   margin: 12% auto 12% auto;
   width: 40vw;
+  height: 40vw;
   border-radius: 50%;
 }
 
 @media screen and (min-width: 700px) {
   .profile__avatar {
-    width: auto;
+    width: 127px;
     height: 127px;
     margin: auto 0;
   }
