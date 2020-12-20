@@ -10,6 +10,7 @@
   border: none;
   transition-duration: .5s;
   cursor: pointer;
+  margin-bottom: 3px;
 }
 
 .grid__like:hover {
@@ -19,3 +20,6 @@
 .grid__like:focus {
   outline: none;
 }
+
+
+
