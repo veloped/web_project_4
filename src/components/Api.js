@@ -39,6 +39,7 @@ export default class Api {
             body: JSON.stringify({name, link})
         })
         .then((res) => {
+            console.log(res);
             if (res.ok) {
               return res.json();
             }else{
@@ -65,11 +66,25 @@ export default class Api {
     }
 
     setUserAvatar(avatar) {
-        console.log("tut", avatar);
         fetch(this._baseUrl + '/users/me/avatar', {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({avatar: avatar.link})
+        })
+        .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }else{
+            Promise.reject('Error #' + res.status);
+            }
+        })
+        .catch((err) => console.log(err)); 
+    }
+
+    deleteCard(id) {
+        fetch(this._baseUrl + '/cards/' + id, {
+            method: "DELETE",
+            headers: this._headers
         })
         .then((res) => {
             if (res.ok) {
