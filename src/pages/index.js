@@ -60,6 +60,20 @@ const popupAvatar = new PopupWithForm({
 });
 popupAvatar.setEventListeners();
 
+///popup DELETE
+const popupDelete = new PopupWithForm({
+  popupSelector: ".popup_type_delete", 
+  submitForm: () => {
+    //delete from server
+    //delete from grid 
+  }
+});
+popupDelete.setEventListeners();
+
+
+
+
+
 editAvatarButton.addEventListener("click", () => {
   popupAvatar.open();
 });
