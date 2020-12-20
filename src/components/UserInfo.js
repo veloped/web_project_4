@@ -18,7 +18,8 @@ export default class UserInfo {
         this._job.textContent = newJob;
     }
 
-    setUserPic({newAvatar}) {
+    setUserPic(newAvatar) {
+        console.log(newAvatar);
         this._avatar.style = `background-image: url('${newAvatar}')`;
     }
 }

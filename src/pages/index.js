@@ -22,8 +22,6 @@ const api = new Api ({
   }
 });
 
-
-
 const cardList = new Section ({
   items: [],   
   renderer: (data) => {
@@ -48,16 +46,32 @@ api.getCardList().then((res) => {
 
 api.getIUserInfo().then((res) => {
   userInfo.setUserInfo({newName: res.name, newJob: res.about});
-  userInfo.setUserPic({ newAvatar: res.avatar});
+  userInfo.setUserPic(res.avatar);
 })
 
 /// addAvatar button listener 
+
+const popupAvatar = new PopupWithForm({
+  popupSelector: ".popup_type_edit-avatar",
+  submitForm: (data) => {
+    userInfo.setUserPic(data.link);
+    api.setUserAvatar(data);
+  }
+});
+popupAvatar.setEventListeners();
+
+editAvatarButton.addEventListener("click", () => {
+  popupAvatar.open();
+});
 
 
 const addValidation = new FormValidator(settingsObject, document.querySelector(".form_add"));
 addValidation.enableValidation();
 const editValidation = new FormValidator(settingsObject, document.querySelector(".form_edit"));
 editValidation.enableValidation();
+const avatarValidation = new FormValidator(settingsObject, document.querySelector(".form_avatar"));
+avatarValidation.enableValidation();
+
 
 const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
@@ -72,18 +86,7 @@ function initiateCard(data) {
   return cardInstance;
 }
 
-const popupAvatar = new PopupWithForm({
-  popupSelector: ".popup_type_edit-avatar",
-  submitForm: (data) => {
-    userInfo.setUserPic(data);
-    api.setUserAvatar(data);
-  }
-});
-popupAvatar.setEventListeners();
 
-editAvatarButton.addEventListener("click", () => {
-  popupAvatar.open();
-});
 
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",

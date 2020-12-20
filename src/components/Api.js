@@ -64,11 +64,12 @@ export default class Api {
         .catch((err) => console.log(err)); 
     }
 
-    setUserAvatar({link}) {
+    setUserAvatar(avatar) {
+        console.log("tut", avatar);
         fetch(this._baseUrl + '/users/me/avatar', {
             method: "PATCH",
             headers: this._headers,
-            body: JSON.stringify({link})
+            body: JSON.stringify({avatar: avatar.link})
         })
         .then((res) => {
             if (res.ok) {
