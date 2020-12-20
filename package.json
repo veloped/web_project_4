@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && webpack",
-    "dev": "webpack serve --watch"
+    "dev": "webpack serve --open --watch"
   },
   "repository": {
     "type": "git",

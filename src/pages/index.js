@@ -1,6 +1,6 @@
 import Card from "/src/components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import { settingsObject, initialCards, editButton, inputTitle, inputLink, addButton } from "../utils/constants.js";
+import { settingsObject, editButton, addButton } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
@@ -45,7 +45,8 @@ api.getCardList().then((res) => {
 }); 
 
 api.getIUserInfo().then((res) => {
-  userInfo.setUserInfo({newName: res.name, newJob: res.about, newAvatar: res.avatar})
+  userInfo.setUserInfo({newName: res.name, newJob: res.about});
+  userInfo.setUserPic({ newAvatar: res.avatar});
 })
 
 
@@ -80,8 +81,6 @@ const popupAdd = new PopupWithForm({
       cardList.addItem(cardElement);
       addValidation.resetForms();
     })
-
-
     
   }
 });
@@ -92,6 +91,7 @@ const popupEdit = new PopupWithForm({
   popupSelector: ".popup_type_edit",
   submitForm: (data) => {
     userInfo.setUserInfo({newName: data.name, newJob: data.about});
+    api.setUserInfo(data);
   }
 });
 popupEdit.setEventListeners();

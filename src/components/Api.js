@@ -48,5 +48,21 @@ export default class Api {
         .catch((err) => console.log(err));
     }
 
+    setUserInfo({name, about}) {
+        fetch(this._baseUrl + '/users/me', {
+            method: "PATCH",
+            headers: this._headers,
+            body: JSON.stringify({name, about})
+        })
+        .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }else{
+            Promise.reject('Error #' + res.status);
+            }
+        })
+        .catch((err) => console.log(err)); 
+    }
+
 }
 

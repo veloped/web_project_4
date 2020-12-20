@@ -13,10 +13,12 @@ export default class UserInfo {
         return userInfo;
     }
 
-    setUserInfo({newName, newJob, newAvatar}) {
+    setUserInfo({newName, newJob}) {
         this._name.textContent = newName;
         this._job.textContent = newJob;
-        this._avatar.style = `background-image: url('${newAvatar}')`;
+    }
 
+    setUserPic({newAvatar}) {
+        this._avatar.style = `background-image: url('${newAvatar}')`;
     }
 }
