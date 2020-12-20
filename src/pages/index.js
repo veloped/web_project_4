@@ -1,6 +1,6 @@
 import Card from "/src/components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import { settingsObject, editButton, addButton } from "../utils/constants.js";
+import { settingsObject, editButton, addButton, editAvatarButton } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
@@ -21,6 +21,8 @@ const api = new Api ({
       "Content-type": "application/json"
   }
 });
+
+
 
 const cardList = new Section ({
   items: [],   
@@ -49,6 +51,7 @@ api.getIUserInfo().then((res) => {
   userInfo.setUserPic({ newAvatar: res.avatar});
 })
 
+/// addAvatar button listener 
 
 
 const addValidation = new FormValidator(settingsObject, document.querySelector(".form_add"));
@@ -69,7 +72,18 @@ function initiateCard(data) {
   return cardInstance;
 }
 
+const popupAvatar = new PopupWithForm({
+  popupSelector: ".popup_type_edit-avatar",
+  submitForm: (data) => {
+    userInfo.setUserPic(data);
+    api.setUserAvatar(data);
+  }
+});
+popupAvatar.setEventListeners();
 
+editAvatarButton.addEventListener("click", () => {
+  popupAvatar.open();
+});
 
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",

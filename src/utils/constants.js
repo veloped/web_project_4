@@ -10,3 +10,4 @@ export const settingsObject = {
 
 export const editButton = document.querySelector('.profile__edit');
 export const addButton = document.querySelector('.profile__button');
+export const editAvatarButton = document.querySelector('.profile__avatar');
