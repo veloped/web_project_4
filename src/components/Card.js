@@ -7,6 +7,7 @@ export default class Card {
           this.isLiked = false;
           this._cardSelector = cardSelector;
           this._handleDeleteClick = handleDeleteClick;
+          this._handleLikeClick = handleLikeClick;
           this._cardId = data._id;
           this._userId = userId;
           this._cardUser = data.owner._id;
@@ -48,11 +49,10 @@ export default class Card {
         return this._element;
       }
 
-      _like() {
-        
+      countLikes(value) {
+        const cardLikes = this._element.querySelector('.grid__likes');
+        cardLikes.textContent = value;
 
-        this._element.querySelector('.grid__like').classList.toggle('grid__like_on');
-        this.isLiked = !this.isLiked;
       }
 
       deleteCard() {
@@ -65,7 +65,7 @@ export default class Card {
 
       _setEventListeners() {
         this._element.querySelector('.grid__like').addEventListener("click", () => {
-          this._handleLikeClick(this._getId());
+          this._handleLikeClick(this.getId());
         });
         this._element.querySelector('.grid__delete').addEventListener("click", () => {
           this._handleDeleteClick(this.getId());

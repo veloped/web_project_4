@@ -139,7 +139,20 @@ function initiateCard(data) {
       })
     }, 
     handleLikeClick: (id) => {
-      api.addLike(id);
+      const like = cardInstance._element.querySelector('.grid__like');
+      if (like.classList.contains('grid__like_on')) {
+        api.removeLike(id)
+        .then((res) => {
+          like.classList.remove('grid__like_on');
+          cardInstance.countLikes(res.likes.length);
+        });
+      }else{
+        api.addLike(id)
+        .then((res) => {
+          like.classList.add('grid__like_on');
+          cardInstance.countLikes(res.likes.length);
+        })
+      }  
     }
   }, userInfo.getUserInfo().id , ".card-template"); 
   return cardInstance;
