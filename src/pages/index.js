@@ -62,8 +62,8 @@ editAvatarButton.addEventListener("click", () => {
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
   submitForm: (data) => { 
-    api.addCard(data).then(() => {
-      const cardInstance = initiateCard(data);
+    api.addCard(data).then((res) => {
+      const cardInstance = initiateCard(res);
       const cardElement = cardInstance.generateCard();
       cardList.addItem(cardElement);
       addValidation.resetForms();
@@ -118,10 +118,6 @@ api.getIUserInfo().then((res) => {
   userInfo.setUserInfo({newName: res.name, newJob: res.about});
   userInfo.setUserPic(res.avatar);
 })
-
-
-
-
 
 
 
