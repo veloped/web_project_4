@@ -65,7 +65,7 @@ export default class Card {
 
       _setEventListeners() {
         this._element.querySelector('.grid__like').addEventListener("click", () => {
-          this._handleLikeClick();
+          this._handleLikeClick(this._getId());
         });
         this._element.querySelector('.grid__delete').addEventListener("click", () => {
           this._handleDeleteClick(this.getId());

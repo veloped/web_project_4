@@ -137,6 +137,9 @@ function initiateCard(data) {
         api.deleteCard(cardInstance.getId());
         cardInstance.deleteCard();
       })
+    }, 
+    handleLikeClick: (id) => {
+      api.addLike(id);
     }
   }, userInfo.getUserInfo().id , ".card-template"); 
   return cardInstance;
