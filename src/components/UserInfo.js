@@ -3,19 +3,22 @@ export default class UserInfo {
         this._name = document.querySelector(nameSelector);
         this._job = document.querySelector(jobSelector);
         this._avatar = document.querySelector(avatarSelector);
+        this._id = null;
     }
 
     getUserInfo() {
-
-        const userInfo = {};
-        userInfo.name = this._name.textContent;
-        userInfo.job = this._job.textContent;
-        return userInfo;
+        return {
+            name: this._name.textContent,
+            about: this._job.textContent,
+            avatar: this._avatar.style,
+            id: this._id
+        }
     }
 
-    setUserInfo({newName, newJob}) {
+    setUserInfo({newName, newJob, newId}) {
         this._name.textContent = newName;
         this._job.textContent = newJob;
+        this._id = newId;
     }
 
     setUserPic(newAvatar) {

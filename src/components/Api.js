@@ -95,5 +95,13 @@ export default class Api {
         .catch((err) => console.log(err)); 
     }
 
+    addLike(id) {
+
+    }
+
+    removeLike(id) {
+        
+    }
+
 }
 

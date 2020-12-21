@@ -1,5 +1,5 @@
 export default class Card {
-      constructor({ data, handleCardClick, handleDeleteClick }, cardSelector) {
+      constructor({ data, handleCardClick, handleDeleteClick }, userId, cardSelector) {
           this._name = data.name;
           this._link = data.link;
           this._likes = data.likes;
@@ -7,11 +7,14 @@ export default class Card {
           this.isLiked = false;
           this._cardSelector = cardSelector;
           this._handleDeleteClick = handleDeleteClick;
-          this._id = data._id;
+          this._cardId = data._id;
+          this._userId = userId;
+          this._cardUser = data.owner._id;
       }
 
       getId() {
-        return this._id;
+        
+        return this._cardId;
       }
 
       _getTemplate() {
@@ -39,8 +42,9 @@ export default class Card {
       }
 
       _like() {
+        console.log(this._cardUser);
+        console.log(this._userId);
         this._element.querySelector('.grid__like').classList.toggle('grid__like_on');
-        
         this.isLiked = !this.isLiked;
       }
 

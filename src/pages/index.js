@@ -118,9 +118,9 @@ api.getCardList().then((res) => {
 
 
 api.getIUserInfo().then((res) => {
-  userInfo.setUserInfo({newName: res.name, newJob: res.about});
+  userInfo.setUserInfo({newName: res.name, newJob: res.about, newId: res._id});
   userInfo.setUserPic(res.avatar);
-})
+});
 
 
 
@@ -137,7 +137,7 @@ function initiateCard(data) {
         cardInstance.deleteCard();
       })
     }
-  }, ".card-template"); 
+  }, userInfo.getUserInfo().id , ".card-template"); 
   return cardInstance;
 }
 
