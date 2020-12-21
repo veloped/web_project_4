@@ -104,6 +104,7 @@ avatarValidation.enableValidation();
 
 
 api.getCardList().then((res) => {
+  console.log(res);
   const cardList = new Section ({
     items: res,   
     renderer: (data) => {

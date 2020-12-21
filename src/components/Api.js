@@ -96,11 +96,33 @@ export default class Api {
     }
 
     addLike(id) {
-
+        return fetch(this._baseUrl + '/cards/likes/' + id, {
+            method: "PUT",
+            headers: this._headers
+        })
+        .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }else{
+            Promise.reject('Error #' + res.status);
+            }
+        })
+        .catch((err) => console.log(err)); 
     }
 
     removeLike(id) {
-        
+        return fetch(this._baseUrl + '/cards/likes/' + id, {
+            method: "DELETE",
+            headers: this._headers
+        })
+        .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }else{
+            Promise.reject('Error #' + res.status);
+            }
+        })
+        .catch((err) => console.log(err)); 
     }
 
 }
