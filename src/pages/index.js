@@ -1,15 +1,13 @@
 import Card from "/src/components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import { settingsObject, editButton, addButton, editAvatarButton } from "../utils/constants.js";
+import { settingsObject, editButton, addButton, editAvatarButton, editSubmit, addSubmit, avatarSubmit } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import "/src/pages/index.css";
-const editSubmit = document.querySelector('.form__button_edit');
-const addSubmit = document.querySelector('.form__button_add');
-const avatarSubmit = document.querySelector('.form__button_avatar');
+
 
 
 

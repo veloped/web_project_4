@@ -11,3 +11,6 @@ export const settingsObject = {
 export const editButton = document.querySelector('.profile__edit');
 export const addButton = document.querySelector('.profile__button');
 export const editAvatarButton = document.querySelector('.profile__avatar');
+export const editSubmit = document.querySelector('.form__button_edit');
+export const addSubmit = document.querySelector('.form__button_add');
+export const avatarSubmit = document.querySelector('.form__button_avatar');
