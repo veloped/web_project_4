@@ -79,7 +79,6 @@ addButton.addEventListener('click', () => {
 });
 
 
-
 const popupEdit = new PopupWithForm({
   popupSelector: ".popup_type_edit",
   submitForm: (data) => {
@@ -93,7 +92,6 @@ editButton.addEventListener('click', () => {
 }); 
 
 
-
 const addValidation = new FormValidator(settingsObject, document.querySelector(".form_add"));
 addValidation.enableValidation();
 const editValidation = new FormValidator(settingsObject, document.querySelector(".form_edit"));
@@ -102,9 +100,7 @@ const avatarValidation = new FormValidator(settingsObject, document.querySelecto
 avatarValidation.enableValidation();
  
 
-
 api.getCardList().then((res) => {
-  console.log(res);
   const cardList = new Section ({
     items: res,   
     renderer: (data) => {

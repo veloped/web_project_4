@@ -33,19 +33,26 @@ export default class Card {
         const gridName = this._element.querySelector('.grid__name');
         const gridImage = this._element.querySelector('.grid__image');
         const cardLikes = this._element.querySelector('.grid__likes');
+        const deleteButton = this._element.querySelector('.grid__delete');
+
 
         this._setEventListeners();
         gridName.textContent = this._name;
         gridImage.src = this._link;
         gridImage.alt = this._name;
+
+        if (this._cardUser !== this._userId) {
+          deleteButton.classList.add('grid__delete_hidden');
+        };
+        
         this._likes.forEach((item) => {
-          console.log(item._id);
           if (item._id === this._userId) {
             this._isLiked = true;
             this._element.querySelector('.grid__like').classList.toggle('grid__like_on');
           }
         });
         cardLikes.textContent = this._likes.length;
+
         return this._element;
       }
 
@@ -57,8 +64,6 @@ export default class Card {
 
       deleteCard() {
         this._element.querySelector('.grid__delete').closest('.grid__card').remove();
-        console.log(this._cardUser);
-        console.log(this._userId);
       }
 
       

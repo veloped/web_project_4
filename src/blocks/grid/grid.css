@@ -8,6 +8,8 @@
 @import url('__name/grid__name.css');
 @import url('__text/grid__text.css');
 @import url('__delete/grid__delete.css');
+@import url('__delete/_hidden/grid__delete_hidden.css');
+
 
 
 .grid {
