@@ -7,6 +7,9 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import "/src/pages/index.css";
+const editSubmit = document.querySelector('.form__button_edit');
+const addSubmit = document.querySelector('.form__button_add');
+const avatarSubmit = document.querySelector('.form__button_avatar');
 
 
 
@@ -51,8 +54,15 @@ popupDelete.setEventListeners();
 const popupAvatar = new PopupWithForm({
   popupSelector: ".popup_type_edit-avatar",
   submitForm: (data) => {
-    userInfo.setUserPic(data.link);
-    api.setUserAvatar(data);
+    avatarSubmit.textContent = "Saving...";
+    api.setUserAvatar(data)
+    .then(() => {
+      userInfo.setUserPic(data.link);
+    })
+    .then(() => {
+      avatarSubmit.textContent = "Save";
+      popupAvatar.close();
+    });
   }
 });
 popupAvatar.setEventListeners();
@@ -65,11 +75,16 @@ editAvatarButton.addEventListener("click", () => {
 const popupAdd = new PopupWithForm({
   popupSelector: ".popup_type_add",
   submitForm: (data) => { 
+    addSubmit.textContent = "Creating...";
     api.addCard(data).then((res) => {
       const cardInstance = initiateCard(res);
       const cardElement = cardInstance.generateCard();
       cardList.addItem(cardElement);
       addValidation.resetForms();
+    })
+    .then(() => {
+      addSubmit.textContent = "Create";
+      popupAdd.close();
     }) 
   }
 });
@@ -82,8 +97,16 @@ addButton.addEventListener('click', () => {
 const popupEdit = new PopupWithForm({
   popupSelector: ".popup_type_edit",
   submitForm: (data) => {
-    userInfo.setUserInfo({newName: data.name, newJob: data.about});
-    api.setUserInfo(data);
+    editSubmit.textContent = "Saving...";
+    api.setUserInfo(data)
+    .then((res) => {
+      userInfo.setUserInfo({newName: res.name, newJob: res.about});
+      
+    })
+    .then(() => {
+      editSubmit.textContent = "Save";
+      popupEdit.close();
+    });
   }
 });
 popupEdit.setEventListeners();
