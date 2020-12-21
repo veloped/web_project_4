@@ -7,7 +7,6 @@ import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import "/src/pages/index.css";
-import DeletePopup from "../components/DeletePopup.js";
 
 
 
@@ -36,13 +35,17 @@ const cardList = new Section ({
     const cardElement = cardInstance.generateCard();
     cardList.addItem(cardElement);
   }
-}, ".grid__list");
+}, ".grid__list"); 
 
 
 
 const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
 
+const popupDelete = new PopupWithForm({
+  popupSelector: ".popup_type_delete"
+});
+popupDelete.setEventListeners();
 
 
 const popupAvatar = new PopupWithForm({
@@ -121,7 +124,6 @@ api.getIUserInfo().then((res) => {
 
 
 
-
 function initiateCard(data) {
   const cardInstance = new Card({ 
     data: data,
@@ -129,19 +131,16 @@ function initiateCard(data) {
     popupWithImage.open(name, link);      
     },
     handleDeleteClick: () => {
-      const popupDelete = new DeletePopup({
-        popupSelector: ".popup_type_delete", 
-        confirmDelete: (id) => {
-          api.deleteCard(id)
-          cardInstance.deleteCard(); 
-        }
-      });
-      popupDelete.setEventListeners();
       popupDelete.open(cardInstance.getId());
+      popupDelete.submitForm(() => {
+        api.deleteCard(cardInstance.getId());
+        cardInstance.deleteCard();
+      })
     }
   }, ".card-template"); 
   return cardInstance;
 }
+
 
 
 

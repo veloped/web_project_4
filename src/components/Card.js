@@ -55,7 +55,7 @@ export default class Card {
           this._like();
         });
         this._element.querySelector('.grid__delete').addEventListener("click", () => {
-          this._handleDeleteClick();
+          this._handleDeleteClick(this.getId());
 
         });
         this._element.querySelector('.grid__image').addEventListener("click", () => {
