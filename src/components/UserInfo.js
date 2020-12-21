@@ -19,7 +19,6 @@ export default class UserInfo {
     }
 
     setUserPic(newAvatar) {
-        console.log(newAvatar);
         this._avatar.style = `background-image: url('${newAvatar}')`;
     }
 }
