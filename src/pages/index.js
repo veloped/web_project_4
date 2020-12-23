@@ -29,12 +29,12 @@ const api = new Api ({
 
 
 
-const cardList = new Section ({
+const cards = new Section ({
   items: [],   
   renderer: (data) => {
     const cardInstance = initiateCard(data);
     const cardElement = cardInstance.generateCard();
-    cardList.addItem(cardElement);
+    cards.addItem(cardElement);
   }
 }, ".grid__list"); 
 
@@ -77,7 +77,7 @@ const popupAdd = new PopupWithForm({
     api.addCard(data).then((res) => {
       const cardInstance = initiateCard(res);
       const cardElement = cardInstance.generateCard();
-      cardList.addItem(cardElement);
+      cards.addItem(cardElement);
       addValidation.resetForms();
     })
     .then(() => {
@@ -121,16 +121,16 @@ const avatarValidation = new FormValidator(settingsObject, document.querySelecto
 avatarValidation.enableValidation();
  
 
-api.getCardList().then((res) => {
-  const cardList = new Section ({
+api.getcards().then((res) => {
+  const cards = new Section ({
     items: res,   
     renderer: (data) => {
       const cardInstance = initiateCard(data);
       const cardElement = cardInstance.generateCard();
-      cardList.addItem(cardElement);
+      cards.addItem(cardElement);
     }
   }, ".grid__list");
-  cardList.renderer();
+  cards.renderer();
 }); 
 
 

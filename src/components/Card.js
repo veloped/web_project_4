@@ -39,7 +39,7 @@ export default class Card {
         this._setEventListeners();
         gridName.textContent = this._name;
         gridImage.src = this._link;
-        gridImage.alt = this._name; 
+        gridImage.alt = this._name;
 
         if (this._cardUser !== this._userId) {
           deleteButton.classList.add('grid__delete_hidden');
