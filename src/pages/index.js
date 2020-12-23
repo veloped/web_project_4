@@ -180,3 +180,4 @@ function initiateCard(data) {
 
 
 
+
