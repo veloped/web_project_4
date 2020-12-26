@@ -121,7 +121,7 @@ const avatarValidation = new FormValidator(settingsObject, document.querySelecto
 avatarValidation.enableValidation();
  
 
-api.getcards().then((res) => {
+api.getCardList().then((res) => {
   const cards = new Section ({
     items: res,   
     renderer: (data) => {
