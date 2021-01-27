@@ -153,6 +153,7 @@ function initiateCard(data) {
       popupDelete.submitForm(() => {
         api.deleteCard(cardInstance.getId());
         cardInstance.deleteCard();
+        popupDelete.close();
       })
     }, 
     handleLikeClick: (id) => {
